@@ -9,7 +9,8 @@ class TestVillano {
 	@Test
 	void obtenerNombreDelVillanoTest() {
 		Villano villano= new Villano();
-		villano.setNombre("Carmen San Diego");
+		villano.setNombre("Carmen Sandiego");
+		
 		Assert.assertEquals("Carmen San Diego", villano.getNombre());
 	}
 	

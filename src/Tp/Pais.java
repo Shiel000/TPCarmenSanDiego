@@ -2,15 +2,34 @@ package Tp;
 import java.util.*;
 
 public class Pais {
-	public String nombrePais;
-	public List<String>caracteristicasDelPais;
-	public List<LugarDeInteres>lugaresInteres;
-	public List<Pais>paisesConConexionAerea;
+	private String nombrePais;
+	private List<String>caracteristicasDelPais;
+	private List<LugarDeInteres>lugaresInteres;
+	private List<Pais>paisesConConexionAerea;
 	
-	
-	public boolean tieneConexionAereaCon(Pais otroPais) {
-		return this.paisesConConexionAerea.contains(otroPais)&& otroPais.paisesConConexionAerea.contains(this);		
+	public Pais() {
+		paisesConConexionAerea=new ArrayList<Pais>();
 	}
+
+	public void setConexion(Pais pais) {
+		paisesConConexionAerea.add(pais);
+		
+	}
+
+	public List<Pais> getConexiones() {
+		return paisesConConexionAerea;
+	}
+	
+	
+	
+	public List<Pais> getPaisesConConexionAerea() {
+		return paisesConConexionAerea;
+	}
+	public void setPaisesConConexionAerea(Pais pais) {
+		this.paisesConConexionAerea.add(pais);
+	}
+	
+
 	public List<String> darCaracteristicas(int cantidadCaracteristicasaDar){
 		List<String> caracteristicasADar = null;
 		for(int i=0;i<cantidadCaracteristicasaDar;i++) {
@@ -19,5 +38,4 @@ public class Pais {
 		return caracteristicasADar;
 	}
 	
-
 }

@@ -2,14 +2,29 @@ package Tp;
 import java.util.List;
 
 public class Caso {
-	public Villano responsable;
+	private Villano responsable;
 	public List<Pais>planDeEscape;
-	public String reporte;
-	public String objetoRobado;
-	public Pais paisDondeOcurrioElSiniestro;
+	private String reporte;
+	private String objetoRobado;
+	private Pais paisDondeOcurrioElSiniestro;
 	
-	public Boolean seEncuentraPaisEnElPanDeEscape(Pais paisCualquiera) {
+	
+	
+	
+	
+	
+	
+	
+	
+	private Boolean estaResueltoElCaso() {
+		if(responsable.estaCapturado()) {
+			return true;
+		}
+		return false;
+	}
+	
+	/*public Boolean seEncuentraPaisEnElPanDeEscape(Pais paisCualquiera) {
 		return planDeEscape.contains(paisCualquiera);
 		
-	}
+	}*/
 }
