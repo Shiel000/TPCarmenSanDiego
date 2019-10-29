@@ -17,10 +17,34 @@ public class Caso {
 	
 	
 	private Boolean estaResueltoElCaso() {
-		if(responsable.estaCapturado()) {
+		if(getResponsable().estaCapturado()) {
 			return true;
 		}
 		return false;
+	}
+
+
+
+
+
+
+
+
+
+	public Villano getResponsable() {
+		return responsable;
+	}
+
+
+
+
+
+
+
+
+
+	public void setResponsable(Villano responsable) {
+		this.responsable = responsable;
 	}
 	
 	/*public Boolean seEncuentraPaisEnElPanDeEscape(Pais paisCualquiera) {

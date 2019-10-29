@@ -10,6 +10,7 @@ public class Villano{
 	private List<Pais>rutaDeescape;
 	
 	
+	
 	public List<String>darSeniasParticulares(int cantidadDeSenias) {
 		List<String> caracteristicasDelVillano= null;
 		for(int i=0;i<cantidadDeSenias;i++) {

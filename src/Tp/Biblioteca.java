@@ -7,7 +7,7 @@ public class Biblioteca extends LugarDeInteres {
 		if(tienePistaDelMalechor(caso)) {
 			//falta lo del 50%
 			List<String> combinacionDeCaracteristicas = null;
-			combinacionDeCaracteristicas.addAll(caso.responsable.darSeniasParticulares(2));
+			combinacionDeCaracteristicas.addAll(caso.getResponsable().darSeniasParticulares(2));
 			combinacionDeCaracteristicas.addAll(paisDeOrigen.darCaracteristicas(2));
 			
 			return combinacionDeCaracteristicas;
