@@ -12,7 +12,7 @@ public class Banco extends LugarDeInteres{
 			List<String> combinacionDeCaracteristicas = null;
 			combinacionDeCaracteristicas.addAll(caso.getResponsable().darSeniasParticulares(1));
 			combinacionDeCaracteristicas.addAll(paisDeOrigen.darCaracteristicas(1));
-			
+			//
 			return combinacionDeCaracteristicas;
 			
 		}

@@ -7,6 +7,7 @@ public class Embajada extends LugarDeInteres {
 	public List<String> darPista(Caso caso) {
 	if(tienePistaDelMalechor(caso)) {
 		return paisDeOrigen.darCaracteristicas(2);
+		//
 		}
 	return null;
 	}
