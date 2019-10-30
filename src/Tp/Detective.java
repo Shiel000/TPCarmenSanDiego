@@ -23,6 +23,6 @@ public class Detective {
 	}
 	
 	public void viajar(Pais pais) {
-		//
+
 	}
 }
