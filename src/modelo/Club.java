@@ -11,6 +11,8 @@ public class Club extends LugarDeInteres{
 			return caso.getResponsable().darSeniasParticulares(2);
 		}
 		return null;
+		
+		//prueba push
 	}
 
 }
