@@ -5,14 +5,16 @@ import java.util.List;
 
 public class Detective {
 	private Caso caso;
-	private ArrayList<Pais> paisesInvestigados;
+	private Pais paisActual;
+	private Pais paisAnterior;
+	private LugarDeInteres lugarAVisitar;
 	private Villano villanoAArrestar;
 	private boolean tengoOrdenDeArresto;
 	
 	public Detective(Caso casoActual){
 		this.caso = casoActual;
-		this.paisesInvestigados=new ArrayList<Pais>();
-		this.paisesInvestigados.add(caso.getPaisDondeOcurrio());
+		this.paisActual=caso.getPaisDondeOcurrio();
+		this.paisAnterior=null;
 		this.tengoOrdenDeArresto=false;
 	}
 	
@@ -22,7 +24,20 @@ public class Detective {
 			this.tengoOrdenDeArresto=true;
 	}
 	
-	public void viajar(Pais pais) {
-
+	public void viajar(Pais paisNuevo) {
+		paisAnterior=paisActual;
+		paisActual=paisNuevo;
 	}
+	public void visitarLugar(LugarDeInteres lugar) {
+		lugarAVisitar=lugar;
+		obtenerPistaDelLugar();
+	}
+
+	private List<String> obtenerPistaDelLugar() {
+		return lugarAVisitar.darPista(caso);
+		
+	}
+	
+	
+	
 }
