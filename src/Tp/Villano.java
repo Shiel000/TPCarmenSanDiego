@@ -3,13 +3,9 @@ import java.util.*;
 
 public class Villano{
 	private String nombre;
-
 	private String sexo;
 	private List<String>seniasParticulares;
 	private List<String>hobbies;
-	private List<Pais>rutaDeescape;
-	
-	
 	
 	public List<String>darSeniasParticulares(int cantidadDeSenias) {
 		List<String> caracteristicasDelVillano= null;
@@ -27,6 +23,13 @@ public class Villano{
 	}
 	public boolean estaCapturado() {
 		return false;
+	}
+	public Collection<? extends String> darHobbies(int cantidadHobbies) {
+		List<String> hobbiesVillano = null;
+		for(int i=0;i<cantidadHobbies;i++) {
+			hobbiesVillano.add(hobbies.get(i));
+		}
+		return hobbiesVillano;
 	}
 
 

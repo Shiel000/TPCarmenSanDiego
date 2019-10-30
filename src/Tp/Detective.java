@@ -1,12 +1,26 @@
 package Tp;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Detective {
 	private Caso caso;
-	private List<Pais> paisesInvestigados;
+	private ArrayList<Pais> paisesInvestigados;
+	private Villano villanoAArrestar;
+	private boolean tengoOrdenDeArresto;
+	
 	public void pedirOrdenDeArresto(Villano villano) {
-		
+		if(!tengoOrdenDeArresto)
+			this.villanoAArrestar=villano;		
+			this.tengoOrdenDeArresto=true;
 	}
-
+	
+	public Detective(Caso casoActual){
+		this.caso = casoActual;
+		this.paisesInvestigados=new ArrayList<Pais>();
+		this.paisesInvestigados.add(caso.getPaisDondeOcurrio());
+		this.tengoOrdenDeArresto=false;
+	}
+	
+	
 }
