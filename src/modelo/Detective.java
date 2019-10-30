@@ -7,7 +7,7 @@ public class Detective {
 	private Caso caso;
 	private Pais paisActual;
 	private Pais paisAnterior;
-	private LugarDeInteres lugarAVisitar;
+	private LugarDeInteres lugarActual;
 	private Villano villanoAArrestar;
 	private boolean tengoOrdenDeArresto;
 	
@@ -24,27 +24,23 @@ public class Detective {
 			this.tengoOrdenDeArresto=true;
 	}
 	
-	public void viajar(Pais paisNuevo) {
+	public void viajarA(Pais paisNuevo) {
 		paisAnterior=paisActual;
 		paisActual=paisNuevo;
 	}
-	public void visitarLugar(LugarDeInteres lugar) {
-		lugarAVisitar=lugar;
+	public void viajarA(LugarDeInteres lugar) {
+		lugarActual=lugar;
 		obtenerPistaDelLugar();
 	}
 
 	private List<String> obtenerPistaDelLugar() {
-		return lugarAVisitar.darPista(caso);
+		return lugarActual.darPista(caso);
 		
 	}
 
-
-	
-	private Boolean esElUltimoPaisDeLArutaDeEscape(Pais pais) {
+	private Boolean esUltimoPaisEnRutaEscape(Pais pais) {
 		Pais ultimo=caso.planDeEscapeDelVillano.get(caso.planDeEscapeDelVillano.size()-1);
 		return pais==ultimo;
 	}
-	
-	
 	
 }

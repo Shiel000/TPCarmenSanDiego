@@ -3,14 +3,14 @@ import java.util.List;
 
 
 public class Biblioteca extends LugarDeInteres {
-	private static final int PROBABILIDAD_QUE_SALGA_UNA_PISTA_MAS = 50; 
+	private static final double PROBABILIDAD_QUE_SALGA_UNA_PISTA_MAS = 50.0; 
 	@Override
 	public List<String> darPista(Caso caso) throws NoHayPistasEXception {
 		if(tienePistaDelMalechor(caso)) {
 			List<String> combinacionDeCaracteristicas = null;
 			combinacionDeCaracteristicas.addAll(caso.getResponsable().darSeniasParticulares(2));
 			combinacionDeCaracteristicas.addAll(paisDeOrigen.darCaracteristicas(2));
-			if(tengoChancesMayoresalCincuentaPorciento()) {
+			if(tengoChancesMayoresA(PROBABILIDAD_QUE_SALGA_UNA_PISTA_MAS)) {
 				combinacionDeCaracteristicas.addAll(caso.getResponsable().darHobbies(1));
 			}
 			
@@ -18,8 +18,10 @@ public class Biblioteca extends LugarDeInteres {
 		}
 	throw new NoHayPistasEXception ("no se ha visto al sujeto en cuestion");
 	}
-	private Boolean tengoChancesMayoresalCincuentaPorciento() {
+	
+	
+	private Boolean tengoChancesMayoresA(double probabilidad) {
 		double numeroAlAzar = Math.random();
-		return numeroAlAzar>PROBABILIDAD_QUE_SALGA_UNA_PISTA_MAS;
+		return numeroAlAzar>=probabilidad;
 	}
 }
