@@ -13,7 +13,7 @@ public class Biblioteca extends LugarDeInteres {
 			if(tengoChancesMayoresA(PROBABILIDAD_QUE_SALGA_UNA_PISTA_MAS)) {
 				combinacionDeCaracteristicas.addAll(caso.getResponsable().darHobbies(1));
 			}
-			/////
+			//////
 			return combinacionDeCaracteristicas;
 		}
 	throw new NoHayPistasEXception ("no se ha visto al sujeto en cuestion");
