@@ -37,6 +37,13 @@ public class Detective {
 		return lugarAVisitar.darPista(caso);
 		
 	}
+
+
+	
+	private Boolean esElUltimoPaisDeLArutaDeEscape(Pais pais) {
+		Pais ultimo=caso.planDeEscapeDelVillano.get(caso.planDeEscapeDelVillano.size()-1);
+		return pais==ultimo;
+	}
 	
 	
 	
