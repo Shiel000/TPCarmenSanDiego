@@ -3,15 +3,17 @@ package modelo;
 import java.util.List;
 
 public class Club extends LugarDeInteres{
+	private static final double PROBABILIDAD_QUE_SALGA_UNA_PISTA_MAS = 70.0; 
 	@Override
 	public List<String> darPistas(Caso caso) {
-		//falta lo del 70% no se me ocurre como hacerlo
-		
+		List<String> combinacionDeCaracteristicas = null;
 		if(tienePistaDelMalechor(caso)) {
-			
-			return caso.getResponsable().darSeniasParticulares(2);
+			combinacionDeCaracteristicas.addAll(caso.getResponsable().darSeniasParticulares(2));
+			if(tengoChancesMayoresA(PROBABILIDAD_QUE_SALGA_UNA_PISTA_MAS)) {
+				combinacionDeCaracteristicas.addAll(caso.getResponsable().darHobbies(1));
+			}
 		}
-		return null;
+		return combinacionDeCaracteristicas;
 	}
 
 	private Boolean tengoChancesMayoresA(double probabilidad) {
