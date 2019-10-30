@@ -9,12 +9,6 @@ public class Detective {
 	private Villano villanoAArrestar;
 	private boolean tengoOrdenDeArresto;
 	
-	public void pedirOrdenDeArresto(Villano villano) {
-		if(!tengoOrdenDeArresto)
-			this.villanoAArrestar=villano;		
-			this.tengoOrdenDeArresto=true;
-	}
-	
 	public Detective(Caso casoActual){
 		this.caso = casoActual;
 		this.paisesInvestigados=new ArrayList<Pais>();
@@ -22,5 +16,13 @@ public class Detective {
 		this.tengoOrdenDeArresto=false;
 	}
 	
+	public void pedirOrdenDeArresto(Villano villano) {
+		if(!tengoOrdenDeArresto)
+			this.villanoAArrestar=villano;		
+			this.tengoOrdenDeArresto=true;
+	}
 	
+	public void viajar(Pais pais) {
+		
+	}
 }

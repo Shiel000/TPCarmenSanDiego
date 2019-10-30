@@ -8,18 +8,10 @@ public class Caso {
 	private String objetoRobado;
 	private Pais paisDondeOcurrio;	
 	
-	private Boolean estaResueltoElCaso() {
-		if(getResponsable().estaCapturado()) {
-			return true;
-		}
-		return false;
-	}
-
 	public Villano getResponsable() {
 		return responsable;
 	}
-
-
+	
 	public void setResponsable(Villano responsable) {
 		this.responsable = responsable;
 	}
@@ -27,7 +19,6 @@ public class Caso {
 	public Pais getPaisDondeOcurrio() {
 		return paisDondeOcurrio;
 	}
-	
 	
 	/*public Boolean seEncuentraPaisEnElPanDeEscape(Pais paisCualquiera) {
 		return planDeEscape.contains(paisCualquiera);
