@@ -1,4 +1,4 @@
-package Tp;
+package modelo;
 import java.util.*;
 
 public class Villano{

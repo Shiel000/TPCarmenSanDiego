@@ -1,8 +1,8 @@
-package Tests;
+package tests;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-import Tp.Pais;
+import modelo.Pais;
 
 class TestPais {
 

@@ -1,7 +1,7 @@
-package Tp ;
+package modelo ;
 import java.util.List;
 
-import Tp.Pais;
+import modelo.Pais;
 
 public abstract class LugarDeInteres {
 	public Pais paisDeOrigen;

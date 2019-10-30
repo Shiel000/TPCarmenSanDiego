@@ -1,7 +1,8 @@
-package Tests;
+package tests;
 import org.junit.Assert;
 import org.junit.Test;
-import Tp.Villano;
+
+import modelo.Villano;
 
 class TestVillano {
 
