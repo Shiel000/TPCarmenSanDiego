@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Club extends LugarDeInteres{
 	@Override
-	public List<String> darPista(Caso caso) {
+	public List<String> darPistas(Caso caso) {
 		//falta lo del 70% no se me ocurre como hacerlo
 		
 		if(tienePistaDelMalechor(caso)) {
@@ -12,8 +12,6 @@ public class Club extends LugarDeInteres{
 			return caso.getResponsable().darSeniasParticulares(2);
 		}
 		return null;
-		
-		//prueba push
 	}
 
 	private Boolean tengoChancesMayoresA(double probabilidad) {

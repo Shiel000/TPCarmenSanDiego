@@ -5,7 +5,7 @@ import java.util.List;
 public class Banco extends LugarDeInteres{
 
 	@Override
-	public List<String> darPista(Caso caso) {
+	public List<String> darPistas(Caso caso) {
 		if(tienePistaDelMalechor(caso)) {
 			//uso el addAll porquela lista que me devuelve tanto el darSenias y darCaracteristicas 
 			//son con 1 elemento (el cual le indico yo con el 1) 
