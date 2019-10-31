@@ -65,7 +65,7 @@ public class Villano{
 	public void setLugarActualDeInteresDelVillano(LugarDeInteres lugarActualDeInteresDelVillano) {
 		this.lugarActualDeInteresDelVillano = lugarActualDeInteresDelVillano;
 	}
-	
+
 	
 	public List<String>darCaracteristicasDelProximoPais(){
 		Pais siguientePais =rutaDeEscape.get(buscoElIndiceDelProximoPais(rutaDeEscape,lugarActualDeInteresDelVillano.paisDeOrigen));
