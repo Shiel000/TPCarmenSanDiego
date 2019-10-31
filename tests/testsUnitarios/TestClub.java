@@ -24,5 +24,11 @@ class TestClub {
 		assertEquals(australia,club.getPaisDeOrigen());
 	}
 
+	@Test
+	public void obtenerVillanoCuandoNOEstaEnClubDevuelveNULL() {
+		Club club = new Club();
+		club.setVillanoEnElLugar(null);
+		assertNull(club.getVillanoEnElLugar());
+	}
 
 }
