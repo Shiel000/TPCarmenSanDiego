@@ -55,7 +55,7 @@ class TestEmbajada {
 		embajada.setVillanoEnElLugar(villano2);
 		assertEquals(villano2,embajada.getVillanoEnElLugar());
 	}
-	
+	 
 	void AlCambiarElPaisDeOrigenPorOtroEnEmbajadaObtengoElNuevo() {
 		Embajada embajada = new Embajada();
 		Pais pais = Mockito.mock(Pais.class);
