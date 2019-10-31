@@ -38,7 +38,4 @@ public class Caso {
 	public void setPaisDondeOcurrioElCrimen(Pais paisDondeOcurrioElCrimen) {
 		this.paisDondeOcurrioElCrimen = paisDondeOcurrioElCrimen;
 	}
-
-	
-	
 }

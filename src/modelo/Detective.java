@@ -69,11 +69,5 @@ public class Detective {
 	public boolean estoyEnElMismoLugarQueElVillano(Villano miVillano) {
 		return paisActual.equals(miVillano.getPaisActual() )&& lugarActual.equals(miVillano.getLugarDeInteresActualVillano());
 	}
-	
-	
-	
-	
-	
-
 
 }

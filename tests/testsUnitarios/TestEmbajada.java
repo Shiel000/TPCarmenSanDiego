@@ -17,6 +17,7 @@ class TestEmbajada {
 		Pais brasil=Mockito.mock(Pais.class);
 		embajada.setPaisDeOrigen(brasil);
 		assertEquals(brasil,embajada.getPaisDeOrigen());
+		
 	}
 	
 /*
