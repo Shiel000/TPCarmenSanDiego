@@ -1,9 +1,9 @@
 package excepciones;
 
-public class perdioElJuegoException extends RuntimeException {
+public class PerdioElJuegoException extends RuntimeException {
 private static final long serialVersionUID = 1L;
 	
-	public perdioElJuegoException () {
+	public PerdioElJuegoException () {
 		super("Usted ha perdido el juego");
 		
 	}

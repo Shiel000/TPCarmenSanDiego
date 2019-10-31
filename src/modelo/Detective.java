@@ -4,7 +4,7 @@ import java.util.List;
 
 import excepciones.NoPuedoIrAEseLugarException;
 import excepciones.NoPuedoViajarAEsePaisException;
-import excepciones.perdioElJuegoException;
+import excepciones.PerdioElJuegoException;
 import lugaresDeInteres.LugarDeInteres;
 
 public class Detective {
@@ -39,7 +39,7 @@ public class Detective {
 		if(estoyEnElMismoLugarQueElVillano(villanoArrestar)&&tieneOrdenDeArrestoCorrecta(villanoArrestar)) {
 			villanoArrestar.setEstaCapturado(true);
 		}
-		throw new perdioElJuegoException();
+		throw new PerdioElJuegoException();
 	}
 
 	public void viajarAlSiguientePais(Pais paisNuevo) {

@@ -1,7 +1,7 @@
 package lugaresDeInteres ;
 import java.util.List;
 
-import excepciones.NoHayPistasEXception;
+import excepciones.NoHayPistasException;
 import modelo.Caso;
 import modelo.Pais;
 import modelo.Pista;

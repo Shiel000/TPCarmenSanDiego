@@ -9,15 +9,15 @@ import org.mockito.Mockito;
 import modelo.Detective;
 import modelo.Caso;
 import modelo.Villano;
-import modelo.LugarDeInteres;
+import lugaresDeInteres.LugarDeInteres;
 
 class TestDetective {
 	
 	@Test
 	
-	void VillanoYDetectiveEstanEnElMismoLugarDeInteres() {
+	public void VillanoYDetectiveEstanEnElMismoLugarDeInteres() {
 		LugarDeInteres lugar = Mockito.mock(LugarDeInteres.class);
-		Caso caso = New Caso();
+		Caso caso = new Caso();
 		Detective detective = new Detective(caso);
 		detective.viajarAlLugarDeInteres(lugar);
 		Villano villano = Mockito.mock(Villano.class);
@@ -27,7 +27,7 @@ class TestDetective {
 	
 	@Test
 	
-	void VillanoYDetectiveNOEstanEnElMismoLugarDeInteres() {
+	public void VillanoYDetectiveNOEstanEnElMismoLugarDeInteres() {
 		LugarDeInteres lugar1 = Mockito.mock(LugarDeInteres.class);
 		LugarDeInteres lugar2 = Mockito.mock(LugarDeInteres.class);
 		Caso caso = New Caso();
