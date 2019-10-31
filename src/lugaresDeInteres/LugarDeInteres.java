@@ -12,6 +12,7 @@ public abstract class LugarDeInteres {
 	
 	public Pais paisDeOrigen;
 	
+	
 	public abstract Pista darPistas(Caso caso);
 	
 	public boolean tienePistaDelMalechor(Caso caso){

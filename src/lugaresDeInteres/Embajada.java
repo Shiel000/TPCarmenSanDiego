@@ -6,12 +6,19 @@ import java.util.List;
 import modelo.Caso;
 import modelo.Pais;
 import modelo.Pista;
+import modelo.PistaPorPais;
 
 public class Embajada extends LugarDeInteres {
 	@Override
 	public Pista darPistas(Caso caso) {
-		Pista pistasADar=new Pista();
+		
+		Pista pistasADar=new PistaPorPais();
 		if(tienePistaDelMalechor(caso)) {
+			pistasADar.getPistasAdar(caso);
+			
+		}
+		
+		/*if(tienePistaDelMalechor(caso)) {
 			ArrayList<Pais>rutaEscape=(ArrayList<Pais>)caso.getPlanDeEscapeDelSospechoso();
 			Pais siguientePais =rutaEscape.get(buscoElIndiceDelProximoPais(rutaEscape));
 			pistasADar=(Pista) siguientePais.darCaracteristicas(2);
@@ -35,6 +42,6 @@ public class Embajada extends LugarDeInteres {
 		
 		return rutaEscape.get(rutaEscape.size()-1).equals(pais);
 	}
-
+*/
 	
 }
