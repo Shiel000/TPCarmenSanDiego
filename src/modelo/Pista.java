@@ -6,7 +6,7 @@ import java.util.List;
 public class Pista {
 	private List<String> pistasAdar=new ArrayList<String>();
 
-	public List<String> getPistasAdar(Caso caso) {
+	public List<String> getPistasAdar() {
 		return pistasAdar;
 	}
 
