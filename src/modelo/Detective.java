@@ -57,18 +57,13 @@ public class Detective {
 	public void viajarAlLugarDeInteres(LugarDeInteres lugar) {
 		if(!esDondeEstoyParado(lugar)) {
 			lugarActual=lugar;
-			obtenerPistaDelLugar();
+			lugarActual.darPistas();
 		}
 		throw new NoPuedoIrAEseLugarException();
 	}
 
 	private boolean esDondeEstoyParado(LugarDeInteres lugar) {
 		return lugar.equals(lugar);
-	}
-
-	private List<String> obtenerPistaDelLugar() {
-		return lugarActual.darPistas(caso);
-		
 	}
 
 	public boolean estoyEnElMismoLugarQueElVillano(Villano miVillano) {
