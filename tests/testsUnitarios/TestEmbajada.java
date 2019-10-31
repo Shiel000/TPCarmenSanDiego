@@ -19,19 +19,16 @@ class TestEmbajada {
 		assertEquals(brasil,embajada.getPaisDeOrigen());
 	}
 	
-	/*
-	 * @Test
+/*
+	@Test
 	void obtenerCaracteristicasDelPais_CuandoPasoElVillanoPorAhi(){
-		Pais argentina=new Pais("argentina");
+		Pais argentina= new Pais("argentina");
 		argentina.setCaracteristicas("celeste y blanca");
 		argentina.setCaracteristicas("tiene un solcito");
 		Embajada embajada=new Embajada();
 		Villano carmen= Mockito.mock(Villano.class);
 		carmen.setLugarActualDeInteresDelVillano(embajada);
 		when(carmen.)
-		
-		
-		
 	}
- */
+*/
 }
