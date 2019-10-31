@@ -13,8 +13,18 @@ public class Embajada extends LugarDeInteres {
 		Pista pistasADar=new Pista();
 		if(tienePistaDelMalechor()) {
 			
-			pistasADar.agregarPista((getVillanoEnElLugar().darCaracteristicasDelProximoPais()));		
+			pistasADar.agregarPista(getPistas(getVillanoEnElLugar().darCaracteristicasDelProximoPais()));		
 		}
 		return pistasADar;
+	}
+
+	private String getPistas(List<String> caracteristicas) {
+		return caracteristicas.get(getRandom(caracteristicas.size()));
+		
+	}
+
+	private int getRandom(int tamaño) {
+		
+		return (int) (Math.random()*tamaño);
 	}
 }
