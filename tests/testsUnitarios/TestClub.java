@@ -32,7 +32,7 @@ class TestClub {
 	}
 	
 	@Test
-	void AlCambiarElPaisDeOrigenPorOtroEnBibliotecaObtengoElNuevo() {
+	void AlCambiarElPaisDeOrigenPorOtroEnClubObtengoElNuevo() {
 		Club club= new Club();
 		Pais pais = Mockito.mock(Pais.class);
 		club.setPaisDeOrigen(pais);

@@ -38,7 +38,7 @@ class TestEmbajada {
 	}
 	
 	@Test
-	void cambiarVillanoPorOtroEnBibliotecaYLoObtengo() {
+	void cambiarVillanoPorOtroEnEmbajadaYLoObtengo() {
 		Embajada embajada = new Embajada();
 		Villano villano1 = Mockito.mock(Villano.class);
 		embajada.setVillanoEnElLugar(villano1);
