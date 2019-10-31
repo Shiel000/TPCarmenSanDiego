@@ -10,7 +10,6 @@ public class Villano{
 	private List<String>hobbies;
 	private List<Pais>rutaDeEscape;
 	private LugarDeInteres lugarActualDeInteresDelVillano;
-
 	private boolean estaCapturado;
 	
 	
@@ -29,12 +28,31 @@ public class Villano{
 		rutaDeEscape=new ArrayList<Pais>();
 		
 	}
-	
 	public String getNombre() {
 		return nombre;
 	}
+	public List<Pais> getPlanDeEscape() {
+		return rutaDeEscape;
+	}
 	
+	public void setRutaDeEscape(List<Pais> rutaDeEscape) {
+		this.rutaDeEscape = rutaDeEscape;
+	}
 	
+	public List<String> getHobbies() {
+		return hobbies;
+	}
+	
+	public void setHobbies(List<String> hobbies) {
+		this.hobbies = hobbies;
+	}
+	public List<String> getSeniasParticulares() {
+		return seniasParticulares;
+	}
+	public void setSeniasParticulares(List<String> seniasParticulares) {
+		this.seniasParticulares = seniasParticulares;
+	}
+
 	public Pais getPaisActual() {
 		return lugarActualDeInteresDelVillano.getPaisDeOrigen();
 	}
@@ -70,22 +88,7 @@ public class Villano{
 	}
 	
 
-	public List<Pais> getPlanDeEscape() {
-		return rutaDeEscape;
-	}
-	public List<String> getHobbies() {
-		return hobbies;
-	}
-	
-	public void setHobbies(List<String> hobbies) {
-		this.hobbies = hobbies;
-	}
-	public List<String> getSeniasParticulares() {
-		return seniasParticulares;
-	}
-	public void setSeniasParticulares(List<String> seniasParticulares) {
-		this.seniasParticulares = seniasParticulares;
-	}
+
 
 
 }
