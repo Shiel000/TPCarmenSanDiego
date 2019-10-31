@@ -2,7 +2,6 @@ package testsUnitarios;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 
@@ -22,7 +21,7 @@ class TestDetective {
 		detective.viajarAlLugarDeInteres(lugar);
 		Villano villano = Mockito.mock(Villano.class);
 		villano.setLugarActualDeInteresDelVillano(lugar);
-		assertTrue(estoyEnElMismoLugarQueElVillano(villano));			
+		assertTrue(detective.estoyEnElMismoLugarQueElVillano(villano));			
 	}
 	
 	@Test
@@ -30,33 +29,33 @@ class TestDetective {
 	public void VillanoYDetectiveNOEstanEnElMismoLugarDeInteres() {
 		LugarDeInteres lugar1 = Mockito.mock(LugarDeInteres.class);
 		LugarDeInteres lugar2 = Mockito.mock(LugarDeInteres.class);
-		Caso caso = New Caso();
+		Caso caso = new Caso();
 		Detective detective = new Detective(caso);
 		detective.viajarAlLugarDeInteres(lugar1);
 		Villano villano = Mockito.mock(Villano.class);
 		villano.setLugarActualDeInteresDelVillano(lugar2);	
-		assertFalse(estoyEnElMismoLugarQueElVillano(villano));
+		assertFalse(detective.estoyEnElMismoLugarQueElVillano(villano));
 	}
 	
 	@Test
 	
-	void esDondeEstoyParadoRecibeElLugarCorrecto() {
+	public void esDondeEstoyParadoRecibeElLugarCorrecto() {
 		LugarDeInteres lugar = Mockito.mock(LugarDeInteres.class);
-		Caso caso = New Caso();
+		Caso caso = new Caso();
 		Detective detective = new Detective(caso);
 		detective.viajarAlLugarDeInteres(lugar);
-		assertTrue(esDondeEstoyParado(lugar));
+		assertTrue(detective.esDondeEstoyParado(lugar));
 	}
 	
 	@Test
 	
-	void esDondeEstoyParadoRecibeUnLugarIncorrecto() {
+	public void esDondeEstoyParadoRecibeUnLugarIncorrecto() {
 		LugarDeInteres lugar1 = Mockito.mock(LugarDeInteres.class);
 		LugarDeInteres lugar2 = Mockito.mock(LugarDeInteres.class);
-		Caso caso = New Caso();
+		Caso caso = new Caso();
 		Detective detective = new Detective(caso);
 		detective.viajarAlLugarDeInteres(lugar1);
-		assertFalse(esDondeEstoyParado(lugar2));
+		assertFalse(detective.esDondeEstoyParado(lugar2));
 	}
 
 }	

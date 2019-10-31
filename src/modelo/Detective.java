@@ -62,7 +62,7 @@ public class Detective {
 		throw new NoPuedoIrAEseLugarException();
 	}
 
-	private boolean esDondeEstoyParado(LugarDeInteres lugar) {
+	public boolean esDondeEstoyParado(LugarDeInteres lugar) {
 		return lugar.equals(lugar);
 	}
 
