@@ -13,5 +13,9 @@ public class Pista {
 	public void setPistasAdar(List<String> pistasAdar) {
 		this.pistasAdar = pistasAdar;
 	}
+	public void agregarPista(String caracteristica) {
+		pistasAdar.add(caracteristica);
+		
+	}
 
 }

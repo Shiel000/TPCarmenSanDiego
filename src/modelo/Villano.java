@@ -8,6 +8,7 @@ public class Villano{
 	private String sexo;
 	private List<String>seniasParticulares;
 	private List<String>hobbies;
+	private List<Pais>rutaDeEscape;
 	private LugarDeInteres lugarActualDeInteresDelVillano;
 
 	private boolean estaCapturado;
@@ -25,6 +26,7 @@ public class Villano{
 		sexo=sexoVillano;
 		seniasParticulares=new ArrayList<String>();
 		hobbies=new ArrayList<String>();
+		rutaDeEscape=new ArrayList<Pais>();
 		
 	}
 	
@@ -61,6 +63,31 @@ public class Villano{
 			caracteristicasDelVillano.add(seniasParticulares.get(i));
 		}
 		return caracteristicasDelVillano;
+	}
+	
+	public List<String>darCaracteristicasDelProximoPais(){
+		Pais siguientePais =rutaDeEscape.get(buscoElIndiceDelProximoPais(rutaDeEscape,lugarActualDeInteresDelVillano.paisDeOrigen));
+		return siguientePais.getCaracteristicasDelPais();
+	}
+	
+	
+	private int buscoElIndiceDelProximoPais (List<Pais> rutaEscape,Pais paisDeOrigen) {
+		int indiceDelSiguientePais = 0;
+		for(int i=0;i<rutaEscape.size();i++) {
+			if(rutaEscape.get(i).equals(paisDeOrigen)&& !esElUltimoElementoDeLaLista(rutaEscape.get(i),rutaEscape)) {
+				indiceDelSiguientePais = i+1;
+			}
+		}	
+		return indiceDelSiguientePais;
+	}
+
+	private boolean esElUltimoElementoDeLaLista(Pais pais, List<Pais> rutaEscape) {
+		return rutaEscape.get(rutaEscape.size()-1).equals(pais);
+	}
+	
+
+	public List<Pais> getPlanDeEscape() {
+		return rutaDeEscape;
 	}
 
 

@@ -24,7 +24,7 @@ public class Pais {
 	public List<Pais> getConexiones() {
 		return paisesConConexionAerea;
 	}
-		
+	
 	public List<Pais> getPaisesConConexionAerea() {
 		return paisesConConexionAerea;
 	}
@@ -42,12 +42,17 @@ public class Pais {
 		
 	}
 
-	public List<String> darCaracteristicas(int cantidadCaracteristicasaDar){
+	public List<String> getCaracteristicasDelPais() {
+		return caracteristicasDelPais;
+	}
+
+	/*public List<String> darCaracteristicas(int cantidadCaracteristicasaDar){
 		List<String> caracteristicasADar = null;
 		for(int i=0;i<cantidadCaracteristicasaDar;i++) {
 			caracteristicasADar.add(caracteristicasDelPais.get(i));
 		}
 		return caracteristicasADar;
-	}
+	}*/
 }
+
 

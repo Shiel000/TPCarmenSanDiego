@@ -5,6 +5,7 @@ import excepciones.NoHayPistasEXception;
 import modelo.Caso;
 import modelo.Pais;
 import modelo.Pista;
+import modelo.Villano;
 
 public abstract class LugarDeInteres {
 	
@@ -12,11 +13,13 @@ public abstract class LugarDeInteres {
 	
 	public Pais paisDeOrigen;
 	
+	private Villano villanoEnElLugar;
 	
-	public abstract Pista darPistas(Caso caso);
 	
-	public boolean tienePistaDelMalechor(Caso caso){
-		return caso.planDeEscapeDelSospechoso.contains(paisDeOrigen);
+	public abstract Pista darPistas();
+
+	public boolean tienePistaDelMalechor(){
+		return villanoEnElLugar.getPlanDeEscape().contains(paisDeOrigen);
 	}
 
 	public Pais getPaisDeOrigen() {
@@ -24,5 +27,13 @@ public abstract class LugarDeInteres {
 	}
 	public void setPaisDeOrigen(Pais paisDeOrigen) {
 		this.paisDeOrigen = paisDeOrigen;
+	}
+
+	public Villano getVillanoEnElLugar() {
+		return villanoEnElLugar;
+	}
+
+	public void setVillanoEnElLugar(Villano villanoEnElLugar) {
+		this.villanoEnElLugar = villanoEnElLugar;
 	}
 }

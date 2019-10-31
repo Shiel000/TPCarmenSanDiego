@@ -48,7 +48,6 @@ public class Detective {
 			paisActual=paisNuevo;
 		}
 		throw new NoPuedoViajarAEsePaisException();
-
 	}
 	private boolean puedoViajarAlProximoPais(Pais paisNuevo) {
 		return paisActual.tieneConexionAereaCon(paisNuevo);
