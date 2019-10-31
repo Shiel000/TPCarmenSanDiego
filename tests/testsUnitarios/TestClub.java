@@ -38,7 +38,7 @@ class TestClub {
 		club.setPaisDeOrigen(pais);
 		Pais pais2 = Mockito.mock(Pais.class);
 		club.setPaisDeOrigen(pais2);
-		assertEquals(pais2,club.getPaisDeOrigen);
+		assertEquals(pais2,club.getPaisDeOrigen());
 		
 	}
 
