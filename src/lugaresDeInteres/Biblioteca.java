@@ -3,7 +3,7 @@ import java.util.List;
 
 import excepciones.NoHayPistasEXception;
 import modelo.Caso;
-import modelo.NoHayPistasException;
+
 
 
 public class Biblioteca extends LugarDeInteres {
