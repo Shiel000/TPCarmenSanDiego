@@ -27,5 +27,5 @@ public class Biblioteca extends LugarDeInteres {
 		double numeroAlAzar = Math.random();
 		return numeroAlAzar>=probabilidad;
 	}
-}
 
+}

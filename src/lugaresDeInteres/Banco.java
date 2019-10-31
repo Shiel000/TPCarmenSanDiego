@@ -12,7 +12,7 @@ public class Banco extends LugarDeInteres{
 		Pista pistasADar=new Pista();
 		if(tienePistaDelMalechor()) {
 			pistasADar.agregarPista(getPistas(getVillanoEnElLugar().getSeniasParticulares()));
-			pistasADar.agregarPista(getPistas(getVillanoEnElLugar().darCaracteristicasDelProximoPais()));
+			pistasADar.agregarPista(getPistas(getVillanoEnElLugar().darCaracteristicasDelSiguientePaisEnLARutaDeEscape()));
 		}
 		return pistasADar;
 	}

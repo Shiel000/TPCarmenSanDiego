@@ -1,10 +1,12 @@
 package testsUnitarios;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import lugaresDeInteres.Biblioteca;
+import lugaresDeInteres.LugarDeInteres;
 import modelo.Pais;
 import modelo.Villano;
 
@@ -12,22 +14,20 @@ import modelo.Villano;
 class TestBiblioteca {
 
 	@Test
-	void obtenerVillanoCuandoEstaEnBiblioteca() {
-		Biblioteca biblioteca = new Biblioteca;
+void obtenerVillano_CuandoEsteEstaEnBiblioteca() {
+		Biblioteca biblioteca = new Biblioteca();
 		Villano villano = Mockito.mock(Villano.class);
 		biblioteca.setVillanoEnElLugar(villano);
 		assertEquals(villano,biblioteca.getVillanoEnElLugar());
 	}
-	
+
 	@Test
 	void obtengoPaisDeOrigenDeLaBiblioteca() {
-		Biblioteca biblioteca = new Biblioteca;
+		Biblioteca biblioteca = new Biblioteca();
 		Pais francia = Mockito.mock(Pais.class);
+		Pais brasil= Mockito.mock(Pais.class);
 		biblioteca.setPaisDeOrigen(brasil);
-		assertEquals(francia,biblioteca.getPaisDeOrigen());
+		assertNotEquals(francia,biblioteca.getPaisDeOrigen());
 	}
 		
-		
-	}
-
 }

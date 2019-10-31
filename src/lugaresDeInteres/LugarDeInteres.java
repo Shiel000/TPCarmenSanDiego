@@ -12,9 +12,9 @@ public abstract class LugarDeInteres {
 	private String nombre;
 	
 	public Pais paisDeOrigen;
-	
+
 	private Villano villanoEnElLugar;
-	
+
 	public abstract Pista darPistas();
 
 	public boolean tienePistaDelMalechor(){

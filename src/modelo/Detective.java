@@ -24,7 +24,7 @@ public class Detective {
 	
 	
 	public boolean tieneOrdenDeArrestoCorrecta(Villano villano){
-		return villanoArrestar.equals(villano); 
+		return villanoArrestar.equals(villano);
 	}
 	
 	
@@ -62,7 +62,7 @@ public class Detective {
 		throw new NoPuedoIrAEseLugarException();
 	}
 
-	private boolean esDondeEstoyParado(LugarDeInteres lugar) {
+	public boolean esDondeEstoyParado(LugarDeInteres lugar) {
 		return lugar.equals(lugar);
 	}
 
