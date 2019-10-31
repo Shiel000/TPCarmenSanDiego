@@ -1,6 +1,8 @@
 package modelo;
 import java.util.*;
 
+import lugaresDeInteres.LugarDeInteres;
+
 public class Pais {
 	private String nombrePais;
 	private List<String>caracteristicasDelPais;
