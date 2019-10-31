@@ -44,5 +44,23 @@ class TestEmbajada {
 		
 		
 	}
+	
+	@Test
+	void cambiarVillanoPorOtroEnBibliotecaYLoObtengo() {
+		Embajada embajada = new Embajada();
+		Villano villano1 = Mockito.mock(Villano.class);
+		embajada.setVillanoEnElLugar(villano1);
+		Villano villano2 = Mockito.mock(Villano.class);
+		embajada.setVillanoEnElLugar(villano2);
+		assertEquals(villano2,embajada.getVillanoEnElLugar);
+	}
+	
+	void AlCambiarElPaisDeOrigenPorOtroEnEmbajadaObtengoElNuevo() {
+		Embajada embajada = new Embajada();
+		Pais pais = Mockito.mock(Pais.class);
+		embajada.setPaisDeOrigen(pais);
+		Pais pais2 = Mockito.mock(Pais.class);
+		embajada.setPaisDeOrigen(pais2);
+		assertEquals(pais2,embajada.getPaisDeOrigen);
 
 }
