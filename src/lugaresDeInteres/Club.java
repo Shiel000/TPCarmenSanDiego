@@ -3,19 +3,21 @@ package lugaresDeInteres;
 import java.util.List;
 
 import modelo.Caso;
+import modelo.Pista;
 
 public class Club extends LugarDeInteres{
 	private static final double PROBABILIDAD_QUE_SALGA_UNA_PISTA_MAS = 70.0; 
 	@Override
-	public List<String> darPistas(Caso caso) {
-		List<String> combinacionDeCaracteristicas = null;
-		if(tienePistaDelMalechor(caso)) {
-			combinacionDeCaracteristicas.addAll(caso.getSospechoso().darSeniasParticulares(2));
+	public Pista darPistas() {
+		Pista pistasADar=new Pista();
+		if(tienePistaDelMalechor()) {
+			pistasADar.agregarPista(getPistas(getVillanoEnElLugar().getSeniasParticulares()));
+			pistasADar.agregarPista(getPistas(getVillanoEnElLugar().getSeniasParticulares()));
 			if(tengoChancesMayoresA(PROBABILIDAD_QUE_SALGA_UNA_PISTA_MAS)) {
-				combinacionDeCaracteristicas.addAll(caso.getSospechoso().darHobbies(1));
+				pistasADar.agregarPista(getPistas(getVillanoEnElLugar().getHobbies()));
 			}
 		}
-		return combinacionDeCaracteristicas;
+		return pistasADar;
 	}
 
 	private Boolean tengoChancesMayoresA(double probabilidad) {
@@ -23,3 +25,5 @@ public class Club extends LugarDeInteres{
 		return numeroAlAzar>=probabilidad;
 	}
 }
+
+

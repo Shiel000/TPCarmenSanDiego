@@ -24,8 +24,8 @@ public class Villano{
 	public Villano(String nombreVillano,String sexoVillano) {
 		nombre=nombreVillano;
 		sexo=sexoVillano;
-		seniasParticulares=new ArrayList<String>();
-		hobbies=new ArrayList<String>();
+		setSeniasParticulares(new ArrayList<String>());
+		setHobbies(new ArrayList<String>());
 		rutaDeEscape=new ArrayList<Pais>();
 		
 	}
@@ -48,22 +48,6 @@ public class Villano{
 		this.lugarActualDeInteresDelVillano = lugarActualDeInteresDelVillano;
 	}
 	
-	
-
-	public List<String> darHobbies(int cantidadHobbies) {
-		List<String> hobbiesVillano = null;
-		for(int i=0;i<cantidadHobbies;i++) {
-			hobbiesVillano.add(hobbies.get(i));
-		}
-		return hobbiesVillano;
-	}
-	public List<String>darSeniasParticulares(int cantidadDeSenias) {
-		List<String> caracteristicasDelVillano= null;
-		for(int i=0;i<cantidadDeSenias;i++) {
-			caracteristicasDelVillano.add(seniasParticulares.get(i));
-		}
-		return caracteristicasDelVillano;
-	}
 	
 	public List<String>darCaracteristicasDelProximoPais(){
 		Pais siguientePais =rutaDeEscape.get(buscoElIndiceDelProximoPais(rutaDeEscape,lugarActualDeInteresDelVillano.paisDeOrigen));
@@ -88,6 +72,19 @@ public class Villano{
 
 	public List<Pais> getPlanDeEscape() {
 		return rutaDeEscape;
+	}
+	public List<String> getHobbies() {
+		return hobbies;
+	}
+	
+	public void setHobbies(List<String> hobbies) {
+		this.hobbies = hobbies;
+	}
+	public List<String> getSeniasParticulares() {
+		return seniasParticulares;
+	}
+	public void setSeniasParticulares(List<String> seniasParticulares) {
+		this.seniasParticulares = seniasParticulares;
 	}
 
 

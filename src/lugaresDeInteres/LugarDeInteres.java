@@ -15,7 +15,6 @@ public abstract class LugarDeInteres {
 	
 	private Villano villanoEnElLugar;
 	
-	
 	public abstract Pista darPistas();
 
 	public boolean tienePistaDelMalechor(){
@@ -36,4 +35,15 @@ public abstract class LugarDeInteres {
 	public void setVillanoEnElLugar(Villano villanoEnElLugar) {
 		this.villanoEnElLugar = villanoEnElLugar;
 	}
+	public String getPistas(List<String> caracteristicas) {
+		return caracteristicas.get(getRandom(caracteristicas.size()));
+		
+	}
+
+	private int getRandom(int tamaño) {
+		
+		return (int) (Math.random()*tamaño);
+	}
+	
+	
 }
