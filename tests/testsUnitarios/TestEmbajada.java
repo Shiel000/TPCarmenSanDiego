@@ -18,7 +18,7 @@ import modelo.Villano;
 
 class TestEmbajada {
 
-	@Test
+	//@Test
 	void obtengoPaisDeOrigenDeLaEmbajada() {
 		Embajada embajada = new Embajada();
 		Pais brasil=Mockito.mock(Pais.class);
@@ -40,7 +40,8 @@ class TestEmbajada {
 		villano.agregarARutaDeEscape(japon);
 		villano.agregarARutaDeEscape(inglaterra);
 		villano.setLugarActualDeInteresDelVillano(embajada);
-		villano.getPlanDeEscape().contains(japon);
+		embajada.darPistas();
+		//villano.getPlanDeEscape().contains(japon);
 		
 		
 	}
@@ -52,7 +53,7 @@ class TestEmbajada {
 		embajada.setVillanoEnElLugar(villano1);
 		Villano villano2 = Mockito.mock(Villano.class);
 		embajada.setVillanoEnElLugar(villano2);
-		assertEquals(villano2,embajada.getVillanoEnElLugar);
+		assertEquals(villano2,embajada.getVillanoEnElLugar());
 	}
 	
 	void AlCambiarElPaisDeOrigenPorOtroEnEmbajadaObtengoElNuevo() {
@@ -61,6 +62,7 @@ class TestEmbajada {
 		embajada.setPaisDeOrigen(pais);
 		Pais pais2 = Mockito.mock(Pais.class);
 		embajada.setPaisDeOrigen(pais2);
-		assertEquals(pais2,embajada.getPaisDeOrigen);
+		assertEquals(pais2,embajada.getPaisDeOrigen());
+	}	
 
 }

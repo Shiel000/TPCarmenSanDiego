@@ -13,12 +13,12 @@ public abstract class LugarDeInteres {
 	
 	public Pais paisDeOrigen;
 	
-	private Villano villanoEnElLugar;
+	public Villano villanoEnElLugar;
 	
 	public abstract Pista darPistas();
 
 	public boolean tienePistaDelMalechor(){
-		return villanoEnElLugar.getPlanDeEscape().contains(paisDeOrigen);
+		return (villanoEnElLugar.getPlanDeEscape().contains(this.paisDeOrigen));
 	}
 	public Pais getPaisDeOrigen() {
 		return paisDeOrigen;

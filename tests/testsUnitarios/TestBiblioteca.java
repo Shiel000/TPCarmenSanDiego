@@ -32,7 +32,7 @@ class TestBiblioteca {
 		biblioteca.setVillanoEnElLugar(villano1);
 		Villano villano2 = Mockito.mock(Villano.class);
 		biblioteca.setVillanoEnElLugar(villano2);
-		assertEquals(villano2,biblioteca.getVillanoEnElLugar);
+		assertEquals(villano2,biblioteca.getVillanoEnElLugar());
 	}
 	
 	void AlCambiarElPaisDeOrigenPorOtroEnBibliotecaObtengoElNuevo() {
@@ -41,7 +41,7 @@ class TestBiblioteca {
 		biblioteca.setPaisDeOrigen(pais);
 		Pais pais2 = Mockito.mock(Pais.class);
 		biblioteca.setPaisDeOrigen(pais2);
-		assertEquals(pais2,biblioteca.getPaisDeOrigen);
+		assertEquals(pais2,biblioteca.getPaisDeOrigen());
 		
 	}
 }
