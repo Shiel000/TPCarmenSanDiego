@@ -1,21 +1,20 @@
 package testsUnitarios;
-import static org.junit.jupiter.api.Assertions.*;
-import java.util.Arrays;
-import java.util.List;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
 import org.mockito.Mockito;
 
-import lugaresDeInteres.LugarDeInteres;
 import modelo.Detective;
 import modelo.Caso;
 import modelo.Villano;
-
+import lugaresDeInteres.LugarDeInteres;
 
 class TestDetective {
 	
 	@Test
 	
-	void VillanoYDetectiveEstanEnElMismoLugarDeInteres() {
+	public void VillanoYDetectiveEstanEnElMismoLugarDeInteres() {
 		LugarDeInteres lugar = Mockito.mock(LugarDeInteres.class);
 		Caso caso = new Caso();
 		Detective detective = new Detective(caso);
@@ -27,7 +26,7 @@ class TestDetective {
 	
 	@Test
 	
-	void VillanoYDetectiveNOEstanEnElMismoLugarDeInteres() {
+	public void VillanoYDetectiveNOEstanEnElMismoLugarDeInteres() {
 		LugarDeInteres lugar1 = Mockito.mock(LugarDeInteres.class);
 		LugarDeInteres lugar2 = Mockito.mock(LugarDeInteres.class);
 		Caso caso = new Caso();
@@ -40,7 +39,7 @@ class TestDetective {
 	
 	@Test
 	
-	void esDondeEstoyParadoRecibeElLugarCorrecto() {
+	public void esDondeEstoyParadoRecibeElLugarCorrecto() {
 		LugarDeInteres lugar = Mockito.mock(LugarDeInteres.class);
 		Caso caso = new Caso();
 		Detective detective = new Detective(caso);
@@ -50,7 +49,7 @@ class TestDetective {
 	
 	@Test
 	
-	void esDondeEstoyParadoRecibeUnLugarIncorrecto() {
+	public void esDondeEstoyParadoRecibeUnLugarIncorrecto() {
 		LugarDeInteres lugar1 = Mockito.mock(LugarDeInteres.class);
 		LugarDeInteres lugar2 = Mockito.mock(LugarDeInteres.class);
 		Caso caso = new Caso();

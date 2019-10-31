@@ -1,7 +1,7 @@
 package lugaresDeInteres;
 import java.util.List;
 
-import excepciones.NoHayPistasEXception;
+import excepciones.NoHayPistasException;
 import modelo.Caso;
 import modelo.Pista;
 
@@ -19,7 +19,7 @@ public class Biblioteca extends LugarDeInteres {
 			}
 			return pistasADar;
 		}
-		throw new NoHayPistasEXception();
+		throw new NoHayPistasException();
 	}
 	
 	
@@ -27,5 +27,5 @@ public class Biblioteca extends LugarDeInteres {
 		double numeroAlAzar = Math.random();
 		return numeroAlAzar>=probabilidad;
 	}
-
 }
+

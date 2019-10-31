@@ -49,7 +49,7 @@ public class Villano{
 	}
 	
 	
-	public List<String>darCaracteristicasDelSiguientePaisEnLARutaDeEscape(){
+	public List<String>darCaracteristicasDelProximoPais(){
 		Pais siguientePais =rutaDeEscape.get(buscoElIndiceDelProximoPais(rutaDeEscape,lugarActualDeInteresDelVillano.paisDeOrigen));
 		return siguientePais.getCaracteristicasDelPais();
 	}

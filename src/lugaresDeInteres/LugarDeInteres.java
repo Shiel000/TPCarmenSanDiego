@@ -1,7 +1,7 @@
 package lugaresDeInteres ;
 import java.util.List;
 
-import excepciones.NoHayPistasEXception;
+import excepciones.NoHayPistasException;
 import modelo.Caso;
 import modelo.Pais;
 import modelo.Pista;
@@ -12,9 +12,9 @@ public abstract class LugarDeInteres {
 	private String nombre;
 	
 	public Pais paisDeOrigen;
-
+	
 	private Villano villanoEnElLugar;
-
+	
 	public abstract Pista darPistas();
 
 	public boolean tienePistaDelMalechor(){

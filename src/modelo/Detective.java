@@ -4,7 +4,7 @@ import java.util.List;
 
 import excepciones.NoPuedoIrAEseLugarException;
 import excepciones.NoPuedoViajarAEsePaisException;
-import excepciones.perdioElJuegoException;
+import excepciones.PerdioElJuegoException;
 import lugaresDeInteres.LugarDeInteres;
 
 public class Detective {
@@ -24,7 +24,7 @@ public class Detective {
 	
 	
 	public boolean tieneOrdenDeArrestoCorrecta(Villano villano){
-		return villanoArrestar.equals(villano);
+		return villanoArrestar.equals(villano); 
 	}
 	
 	
@@ -39,7 +39,7 @@ public class Detective {
 		if(estoyEnElMismoLugarQueElVillano(villanoArrestar)&&tieneOrdenDeArrestoCorrecta(villanoArrestar)) {
 			villanoArrestar.setEstaCapturado(true);
 		}
-		throw new perdioElJuegoException();
+		throw new PerdioElJuegoException();
 	}
 
 	public void viajarAlSiguientePais(Pais paisNuevo) {
@@ -69,11 +69,5 @@ public class Detective {
 	public boolean estoyEnElMismoLugarQueElVillano(Villano miVillano) {
 		return paisActual.equals(miVillano.getPaisActual() )&& lugarActual.equals(miVillano.getLugarDeInteresActualVillano());
 	}
-	
-	
-	
-	
-	
-
 
 }
