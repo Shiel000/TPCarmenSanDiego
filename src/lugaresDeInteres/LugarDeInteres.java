@@ -6,7 +6,10 @@ import modelo.Caso;
 import modelo.Pais;
 
 public abstract class LugarDeInteres {
-	protected Pais paisDeOrigen;
+	
+	private String nombre;
+	
+	private Pais paisDeOrigen;
 	
 	public abstract List<String> darPistas(Caso caso);
 	

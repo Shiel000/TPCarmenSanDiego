@@ -15,7 +15,7 @@ public class Detective {
 	
 	public Detective(Caso casoActual){
 		this.caso = casoActual;
-		this.paisActual=caso.getPaisDondeOcurrio();
+		this.paisActual=caso.getPaisDondeOcurrioElCrimen();
 		this.paisAnterior=null;
 		this.tengoOrdenDeArresto=false;
 	}
@@ -40,9 +40,9 @@ public class Detective {
 		
 	}
 
-	private Boolean esUltimoPaisEnRutaEscape(Pais pais) {
+	/*private Boolean esUltimoPaisEnRutaEscape(Pais pais) {
 		Pais ultimo=caso.planDeEscapeDelVillano.get(caso.planDeEscapeDelVillano.size()-1);
 		return pais==ultimo;
-	}
+	}*/
 	
 }
