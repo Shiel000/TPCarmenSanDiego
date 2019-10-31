@@ -41,6 +41,7 @@ public class Pais {
 		caracteristicasDelPais.add(caracteristica);
 		
 	}
+
 	public List<String> darCaracteristicas(int cantidadCaracteristicasaDar){
 		List<String> caracteristicasADar = null;
 		for(int i=0;i<cantidadCaracteristicasaDar;i++) {
@@ -48,5 +49,5 @@ public class Pais {
 		}
 		return caracteristicasADar;
 	}
-	
 }
+

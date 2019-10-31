@@ -2,7 +2,9 @@ package modelo;
 
 import java.util.List;
 
+import excepciones.NoPuedoIrAEseLugarException;
 import excepciones.NoPuedoViajarAEsePaisException;
+import excepciones.perdioElJuegoException;
 import lugaresDeInteres.LugarDeInteres;
 
 public class Detective {
@@ -12,7 +14,7 @@ public class Detective {
 	private LugarDeInteres lugarActual;
 	private Villano villanoArrestar;
 	private boolean tengoOrdenDeArresto;
-	
+
 	public Detective(Caso casoActual){
 		this.caso = casoActual;
 		this.paisActual=caso.getPaisDondeOcurrioElCrimen();
@@ -21,12 +23,25 @@ public class Detective {
 	}
 	
 	
-	public void pedirOrdenDeArresto(Villano villano) {
-		if(!tengoOrdenDeArresto)
-			this.villanoArrestar=villano;		
-			this.tengoOrdenDeArresto=true;
+	public boolean tieneOrdenDeArrestoCorrecta(Villano villano){
+		return villanoArrestar.equals(villano); 
 	}
 	
+	
+	public void pedirOrdenDeArresto(Villano villano) {
+		if(!tengoOrdenDeArresto) {
+			this.villanoArrestar=villano;		
+			this.tengoOrdenDeArresto=true;
+		}
+	}
+	
+	public void atraparVillano() {
+		if(estoyEnElMismoLugarQueElVillano(villanoArrestar)&&tieneOrdenDeArrestoCorrecta(villanoArrestar)) {
+			villanoArrestar.setEstaCapturado(true);
+		}
+		throw new perdioElJuegoException();
+	}
+
 	public void viajarAlSiguientePais(Pais paisNuevo) {
 		if(puedoViajarAlProximoPais(paisNuevo)) {
 			paisAnterior=paisActual;
@@ -45,10 +60,11 @@ public class Detective {
 			lugarActual=lugar;
 			obtenerPistaDelLugar();
 		}
+		throw new NoPuedoIrAEseLugarException();
 	}
 
 	private boolean esDondeEstoyParado(LugarDeInteres lugar) {
-		return lugar==lugarActual;
+		return lugar.equals(lugar);
 	}
 
 	private List<String> obtenerPistaDelLugar() {
@@ -56,14 +72,14 @@ public class Detective {
 		
 	}
 
-
-	public boolean tieneOrdenDeArrestoCorrecta(Villano villano){
-		return villanoArrestar == villano; 
+	public boolean estoyEnElMismoLugarQueElVillano(Villano miVillano) {
+		return paisActual.equals(miVillano.getPaisActual() )&& lugarActual.equals(miVillano.getLugarDeInteresActualVillano());
 	}
 	
-	public boolean estoyEnElMismoLugarQueElVillano(Villano miVillano) {
-		return paisActual== miVillano.getPaisActual() && lugarActual==miVillano.getLugarDeInteresActualVillano();
-	}
+	
+	
+	
+	
 
 
 }

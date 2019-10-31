@@ -10,7 +10,7 @@ public class Banco extends LugarDeInteres{
 	public List<String> darPistas(Caso caso) {
 		if(tienePistaDelMalechor(caso)) {
 			List<String> combinacionDeCaracteristicas = null;
-			combinacionDeCaracteristicas.addAll(caso.getResponsable().darSeniasParticulares(1));
+			combinacionDeCaracteristicas.addAll(caso.getSospechoso().darSeniasParticulares(1));
 			combinacionDeCaracteristicas.addAll(paisDeOrigen.darCaracteristicas(1));
 			return combinacionDeCaracteristicas;
 		}
@@ -18,3 +18,4 @@ public class Banco extends LugarDeInteres{
 	}
 
 }
+

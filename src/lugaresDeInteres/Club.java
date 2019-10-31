@@ -10,9 +10,9 @@ public class Club extends LugarDeInteres{
 	public List<String> darPistas(Caso caso) {
 		List<String> combinacionDeCaracteristicas = null;
 		if(tienePistaDelMalechor(caso)) {
-			combinacionDeCaracteristicas.addAll(caso.getResponsable().darSeniasParticulares(2));
+			combinacionDeCaracteristicas.addAll(caso.getSospechoso().darSeniasParticulares(2));
 			if(tengoChancesMayoresA(PROBABILIDAD_QUE_SALGA_UNA_PISTA_MAS)) {
-				combinacionDeCaracteristicas.addAll(caso.getResponsable().darHobbies(1));
+				combinacionDeCaracteristicas.addAll(caso.getSospechoso().darHobbies(1));
 			}
 		}
 		return combinacionDeCaracteristicas;

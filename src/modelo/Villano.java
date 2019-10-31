@@ -8,25 +8,46 @@ public class Villano{
 	private String sexo;
 	private List<String>seniasParticulares;
 	private List<String>hobbies;
-	private Pais paisActual;
-	private LugarDeInteres lugarActualDeInteres;
+	private LugarDeInteres lugarActualDeInteresDelVillano;
+
+	private boolean estaCapturado;
 	
 	
+	public boolean isEstaCapturado() {
+		return estaCapturado;
+	}
+	public void setEstaCapturado(boolean estaCapturado) {
+		this.estaCapturado = estaCapturado;
+	}
+
 	public Villano(String nombreVillano,String sexoVillano) {
 		nombre=nombreVillano;
 		sexo=sexoVillano;
 		seniasParticulares=new ArrayList<String>();
 		hobbies=new ArrayList<String>();
+		
 	}
 	
 	public String getNombre() {
 		return nombre;
 	}
+	
+	
+	public Pais getPaisActual() {
+		return lugarActualDeInteresDelVillano.getPaisDeOrigen();
+	}
 
-	public boolean estaCapturado() {
-		return false;
+	
+	public LugarDeInteres getLugarDeInteresActualVillano() {
+		return lugarActualDeInteresDelVillano;
+	}
+		
+	public void setLugarActualDeInteresDelVillano(LugarDeInteres lugarActualDeInteresDelVillano) {
+		this.lugarActualDeInteresDelVillano = lugarActualDeInteresDelVillano;
 	}
 	
+	
+
 	public List<String> darHobbies(int cantidadHobbies) {
 		List<String> hobbiesVillano = null;
 		for(int i=0;i<cantidadHobbies;i++) {
@@ -42,12 +63,5 @@ public class Villano{
 		return caracteristicasDelVillano;
 	}
 
-	public Pais getPaisActual() {
-		return paisActual;
-	}
 
-	public LugarDeInteres getLugarDeInteresActualVillano() {
-		return lugarActualDeInteres;
-	}
-		
 }
