@@ -43,11 +43,5 @@ class TestVillano {
 		assertNotNull(villano.getPlanDeEscape());
 	}
 	
-	@Test
-	void darCaractericticaDelProximo_CuandoHayProximo() {
-		
-		
-	}
-	
 
 }

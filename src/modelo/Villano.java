@@ -8,7 +8,7 @@ public class Villano{
 	private String sexo;
 	private List<String>seniasParticulares;
 	private List<String>hobbies;
-	private List<Pais>rutaDeEscape;
+	private ArrayList<Pais>rutaDeEscape;
 	private LugarDeInteres lugarActualDeInteresDelVillano;
 	private boolean estaCapturado;
 	
@@ -31,13 +31,18 @@ public class Villano{
 	public String getNombre() {
 		return nombre;
 	}
-	public List<Pais> getPlanDeEscape() {
+	public ArrayList<Pais> getPlanDeEscape() {
 		return rutaDeEscape;
 	}
 	
-	public void setRutaDeEscape(List<Pais> rutaDeEscape) {
+	public void setRutaDeEscape(ArrayList<Pais> rutaDeEscape) {
 		this.rutaDeEscape = rutaDeEscape;
 	}
+	
+	public void agregarARutaDeEscape(Pais pais) {
+		this.rutaDeEscape.add(pais);
+	}
+	
 	
 	public List<String> getHobbies() {
 		return hobbies;

@@ -16,10 +16,10 @@ class TestPais {
 		Assert.assertTrue(argentina.getConexiones().contains(uruguay));
 	}
 	//@Test
-	/*void darCaracteristica() {
+	void darCaracteristica() {
 		Pais argentina= new Pais("argentina");
 		argentina.setCaracteristicas("bandera celeste y blanca");
 		
 	}
-*/
+	
 }

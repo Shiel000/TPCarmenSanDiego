@@ -61,7 +61,6 @@ public class Detective {
 		}
 		throw new NoPuedoIrAEseLugarException();
 	}
-
 	public boolean esDondeEstoyParado(LugarDeInteres lugar) {
 		return lugar.equals(lugar);
 	}

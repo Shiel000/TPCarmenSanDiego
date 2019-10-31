@@ -20,7 +20,6 @@ public abstract class LugarDeInteres {
 	public boolean tienePistaDelMalechor(){
 		return villanoEnElLugar.getPlanDeEscape().contains(paisDeOrigen);
 	}
-
 	public Pais getPaisDeOrigen() {
 		return paisDeOrigen;
 	}
