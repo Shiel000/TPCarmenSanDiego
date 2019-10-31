@@ -11,7 +11,6 @@ import modelo.Villano;
 class TestVillano {
 	@Test
 	void obtenerNombreDelVillanoCuandoNoEsNullTest() {
-		
 		Villano villano= new Villano("Carmen San Diego", null);
 		String nombreEsperado= villano.getNombre();
 		assertEquals("Carmen San Diego", nombreEsperado);	
@@ -29,7 +28,8 @@ class TestVillano {
 	void obtenerRutaDeEscape_CuandoTieneUnElemento() {
 		Villano villano= new Villano("Carmen San Diego", "Mujer");
 		Pais pais= Mockito.mock(Pais.class);
-		List<Pais> ListaEscape= Arrays.asList(pais);
+		List<Pais> listaEscape= Arrays.asList(pais);
+		villano.setRutaDeEscape(listaEscape);
 		assertNotNull(villano.getPlanDeEscape());
 	}
 	
@@ -39,9 +39,8 @@ class TestVillano {
 		Pais pais= Mockito.mock(Pais.class);
 		Pais canada= Mockito.mock(Pais.class);
 		Pais australia= Mockito.mock(Pais.class);
-		List<Pais> ListaEscape= Arrays.asList(pais,australia,canada);
+		List<Pais> listaEscape= Arrays.asList(pais,australia,canada);
+		villano.setRutaDeEscape(listaEscape);
 		assertNotNull(villano.getPlanDeEscape());
 	}
-	
-
 }

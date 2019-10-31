@@ -1,11 +1,11 @@
 package modelo;
 
-import java.util.List;
-
-import excepciones.NoPuedoIrAEseLugarException;
+import excepciones.YaSeEncuentraEnElLugarException;
 import excepciones.NoPuedoViajarAEsePaisException;
 import excepciones.PerdioElJuegoException;
 import lugaresDeInteres.LugarDeInteres;
+
+@SuppressWarnings("unused")
 
 public class Detective {
 	private Caso caso;
@@ -21,12 +21,6 @@ public class Detective {
 		this.paisAnterior=null;
 		this.tengoOrdenDeArresto=false;
 	}
-	
-	
-	public boolean tieneOrdenDeArrestoCorrecta(Villano villano){
-		return villanoArrestar.equals(villano); 
-	}
-	
 	
 	public void pedirOrdenDeArresto(Villano villano) {
 		if(!tengoOrdenDeArresto) {
@@ -49,17 +43,13 @@ public class Detective {
 		}
 		throw new NoPuedoViajarAEsePaisException();
 	}
-	private boolean puedoViajarAlProximoPais(Pais paisNuevo) {
-		return paisActual.tieneConexionAereaCon(paisNuevo);
-	}
-
 
 	public void viajarAlLugarDeInteres(LugarDeInteres lugar) {
 		if(!esDondeEstoyParado(lugar)) {
 			lugarActual=lugar;
 			lugarActual.darPistas();
 		}
-		throw new NoPuedoIrAEseLugarException();
+		throw new YaSeEncuentraEnElLugarException();
 	}
 	public boolean esDondeEstoyParado(LugarDeInteres lugar) {
 		return lugar.equals(lugar);
@@ -68,5 +58,9 @@ public class Detective {
 	public boolean estoyEnElMismoLugarQueElVillano(Villano miVillano) {
 		return paisActual.equals(miVillano.getPaisActual() )&& lugarActual.equals(miVillano.getLugarDeInteresActualVillano());
 	}
+	
+	public boolean tieneOrdenDeArrestoCorrecta(Villano villano){ return villanoArrestar.equals(villano); }
 
+	private boolean puedoViajarAlProximoPais(Pais paisNuevo) { return paisActual.tieneConexionAereaCon(paisNuevo); }
 }
+

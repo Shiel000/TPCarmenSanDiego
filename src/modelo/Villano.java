@@ -3,23 +3,17 @@ import java.util.*;
 
 import lugaresDeInteres.LugarDeInteres;
 
+@SuppressWarnings("unused")
+
 public class Villano{
 	private String nombre;
 	private String sexo;
 	private List<String>seniasParticulares;
 	private List<String>hobbies;
-	private ArrayList<Pais>rutaDeEscape;
+	private List<Pais>rutaDeEscape;
 	private LugarDeInteres lugarActualDeInteresDelVillano;
 	private boolean estaCapturado;
 	
-	
-	public boolean isEstaCapturado() {
-		return estaCapturado;
-	}
-	public void setEstaCapturado(boolean estaCapturado) {
-		this.estaCapturado = estaCapturado;
-	}
-
 	public Villano(String nombreVillano,String sexoVillano) {
 		nombre=nombreVillano;
 		sexo=sexoVillano;
@@ -28,49 +22,6 @@ public class Villano{
 		rutaDeEscape=new ArrayList<Pais>();
 		
 	}
-	public String getNombre() {
-		return nombre;
-	}
-	public ArrayList<Pais> getPlanDeEscape() {
-		return rutaDeEscape;
-	}
-	
-	public void setRutaDeEscape(ArrayList<Pais> rutaDeEscape) {
-		this.rutaDeEscape = rutaDeEscape;
-	}
-	
-	public void agregarARutaDeEscape(Pais pais) {
-		this.rutaDeEscape.add(pais);
-	}
-	
-	
-	public List<String> getHobbies() {
-		return hobbies;
-	}
-	
-	public void setHobbies(List<String> hobbies) {
-		this.hobbies = hobbies;
-	}
-	public List<String> getSeniasParticulares() {
-		return seniasParticulares;
-	}
-	public void setSeniasParticulares(List<String> seniasParticulares) {
-		this.seniasParticulares = seniasParticulares;
-	}
-
-	public Pais getPaisActual() {
-		return lugarActualDeInteresDelVillano.getPaisDeOrigen();
-	}
-
-	
-	public LugarDeInteres getLugarDeInteresActualVillano() {
-		return lugarActualDeInteresDelVillano;
-	}
-		
-	public void setLugarActualDeInteresDelVillano(LugarDeInteres lugarActualDeInteresDelVillano) {
-		this.lugarActualDeInteresDelVillano = lugarActualDeInteresDelVillano;
-	}
-
 	
 	public List<String>darCaracteristicasDelProximoPais(){
 		Pais siguientePais =rutaDeEscape.get(buscoElIndiceDelProximoPais(rutaDeEscape,lugarActualDeInteresDelVillano.paisDeOrigen));
@@ -88,12 +39,32 @@ public class Villano{
 		return indiceDelSiguientePais;
 	}
 
-	private boolean esElUltimoElementoDeLaLista(Pais pais, List<Pais> rutaEscape) {
-		return rutaEscape.get(rutaEscape.size()-1).equals(pais);
-	}
 	
+	public boolean isEstaCapturado() { return estaCapturado; }
+	
+	public void setEstaCapturado(boolean estaCapturado) { this.estaCapturado = estaCapturado; }
 
+	public String getNombre() {	return nombre; }
+	
+	public List<Pais> getPlanDeEscape() { return rutaDeEscape; }
+	
+	public void setRutaDeEscape(List<Pais> rutaDeEscape) { this.rutaDeEscape = rutaDeEscape; }
+	
+	public void agregarARutaDeEscape(Pais pais) { this.rutaDeEscape.add(pais); }
+	
+	public List<String> getHobbies() { return hobbies; }
+	
+	public void setHobbies(List<String> hobbies) { this.hobbies = hobbies; }
+	
+	public List<String> getSeniasParticulares() { return seniasParticulares; }
+	
+	public void setSeniasParticulares(List<String> seniasParticulares) { this.seniasParticulares = seniasParticulares; }
 
+	public Pais getPaisActual() { return lugarActualDeInteresDelVillano.getPaisDeOrigen(); }
 
+	public LugarDeInteres getLugarDeInteresActualVillano() { return lugarActualDeInteresDelVillano;	}
+		
+	public void setLugarActualDeInteresDelVillano(LugarDeInteres lugarActualDeInteresDelVillano) { this.lugarActualDeInteresDelVillano = lugarActualDeInteresDelVillano; }
 
+	private boolean esElUltimoElementoDeLaLista(Pais pais, List<Pais> rutaEscape) { return rutaEscape.get(rutaEscape.size()-1).equals(pais); }
 }

@@ -1,27 +1,24 @@
 package lugaresDeInteres;
-import java.util.List;
 
 import excepciones.NoHayPistasException;
-import modelo.Caso;
 import modelo.Pista;
 
 public class Biblioteca extends LugarDeInteres {
-	private static final double PROBABILIDAD_QUE_SALGA_UNA_PISTA_MAS = 50.0; 
 	
 	@Override
 	public Pista darPistas() {
 		Pista pistasADar=new Pista();
+		double probabilidadPistaExtra = 50.0;
 		if(tienePistaDelMalechor()) {
 			pistasADar.agregarPista(getPistas(getVillanoEnElLugar().getSeniasParticulares()));
 			pistasADar.agregarPista(getPistas(getVillanoEnElLugar().getSeniasParticulares()));
-			if(tengoChancesMayoresA(PROBABILIDAD_QUE_SALGA_UNA_PISTA_MAS)) {
+			if(tengoChancesMayoresA(probabilidadPistaExtra)) {
 				pistasADar.agregarPista(getPistas(getVillanoEnElLugar().getHobbies()));
 			}
 			return pistasADar;
 		}
 		throw new NoHayPistasException();
 	}
-	
 	
 	private Boolean tengoChancesMayoresA(double probabilidad) {
 		double numeroAlAzar = Math.random();

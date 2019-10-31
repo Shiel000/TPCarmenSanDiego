@@ -11,14 +11,14 @@ import modelo.Pais;
 class TestCaso {
 
 	@Test
-	public void setPlanDeEscape_CuandoPlanDeEscapeEsNulo() {
+	void setPlanDeEscape_CuandoPlanDeEscapeEsNulo() {
 		Caso caso=new Caso();
 		caso.setPlanDeEscapeDelSospechoso(null);
 		assertNull(caso.getPlanDeEscapeDelSospechoso());
 	
 	}
 	@Test
-	public void setPlanDeEscape_CuandoPlanDeEscapeTieneUnElemento() {
+	void setPlanDeEscape_CuandoPlanDeEscapeTieneUnElemento() {
 		Caso caso = new Caso();
 		Pais pais=Mockito.mock(Pais.class);
 		List<Pais> paisEscape= Arrays.asList(pais);
@@ -27,7 +27,7 @@ class TestCaso {
 		
 	}
 	@Test
-	public void setPlanDeEscape_CuandoPlanDeEscapeContieneMasDeUnElemento() {
+	void setPlanDeEscape_CuandoPlanDeEscapeContieneMasDeUnElemento() {
 		Caso caso = new Caso();
 		Pais argentinaMock = Mockito.mock(Pais.class);
 		Pais chinaMock = Mockito.mock(Pais.class);
@@ -38,7 +38,7 @@ class TestCaso {
 	}
 	
 	@Test
-	public void setPaisOrigen() {
+	void setPaisOrigen() {
 		Caso caso=new Caso();
 		Pais argentinaMock = Mockito.mock(Pais.class);
 		caso.setPaisDondeOcurrioElCrimen(argentinaMock);

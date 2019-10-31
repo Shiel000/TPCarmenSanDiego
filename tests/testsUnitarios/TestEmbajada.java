@@ -1,31 +1,24 @@
 package testsUnitarios;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-
-import java.util.Arrays;
-import java.util.List;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import lugaresDeInteres.Embajada;
 import modelo.Pais;
-import modelo.Pista;
 import modelo.Villano;
 
 
 class TestEmbajada {
 
-	//@Test
+	@Test
 	void obtengoPaisDeOrigenDeLaEmbajada() {
 		Embajada embajada = new Embajada();
 		Pais brasil=Mockito.mock(Pais.class);
 		embajada.setPaisDeOrigen(brasil);
 		assertEquals(brasil,embajada.getPaisDeOrigen());
-		
 	}
+	
 	@Test 
 	void obtengoPista_CuandoElVillanoEstaEnLaEmbajada() {
 		Embajada embajada=new Embajada();
@@ -41,9 +34,7 @@ class TestEmbajada {
 		villano.agregarARutaDeEscape(inglaterra);
 		villano.setLugarActualDeInteresDelVillano(embajada);
 		embajada.darPistas();
-		//villano.getPlanDeEscape().contains(japon);
-		
-		
+		villano.getPlanDeEscape().contains(japon);
 	}
 	
 	@Test
@@ -56,6 +47,7 @@ class TestEmbajada {
 		assertEquals(villano2,embajada.getVillanoEnElLugar());
 	}
 	 
+	@Test
 	void AlCambiarElPaisDeOrigenPorOtroEnEmbajadaObtengoElNuevo() {
 		Embajada embajada = new Embajada();
 		Pais pais = Mockito.mock(Pais.class);

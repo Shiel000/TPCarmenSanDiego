@@ -1,8 +1,5 @@
 package lugaresDeInteres;
 
-import java.util.List;
-
-import modelo.Caso;
 import modelo.Pista;
 
 public class Banco extends LugarDeInteres{

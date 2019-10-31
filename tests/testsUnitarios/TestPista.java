@@ -18,7 +18,6 @@ class TestPista {
 		pista.setPistasAdar(lista);
 		List<String> listaResultante = pista.getPistasAdar();
 		assertTrue((listaResultante.get(0).equals("Es pelado")) && (listaResultante.get(1).equals("Mide 1,80")));
-		
 	}
 	
 	@Test
@@ -30,6 +29,5 @@ class TestPista {
 		pista.agregarPista("Es rubio");
 		List<String> listaResultante = pista.getPistasAdar();
 		assertTrue(listaResultante.get(1).equals("Es rubio"));
-		
 	}
 }

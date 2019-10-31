@@ -9,7 +9,7 @@ import modelo.Villano;
 class TestClub {
 
 	@Test
-	public void obtenerVillanoCuandoEstaEnClub() {
+	void obtenerVillanoCuandoEstaEnClub() {
 		Club club = new Club();
 		Villano villano = Mockito.mock(Villano.class);
 		club.setVillanoEnElLugar(villano);
@@ -17,7 +17,7 @@ class TestClub {
 	}
 	
 	@Test
-	public void obtengoPaisDeOrigenDelClub() {
+	void obtengoPaisDeOrigenDelClub() {
 		Club club = new Club();
 		Pais australia = Mockito.mock(Pais.class);
 		club.setPaisDeOrigen(australia);
@@ -25,7 +25,7 @@ class TestClub {
 	}
 
 	@Test
-	public void obtenerVillanoCuandoNOEstaEnClubDevuelveNULL() {
+	void obtenerVillanoCuandoNOEstaEnClubDevuelveNULL() {
 		Club club = new Club();
 		club.setVillanoEnElLugar(null);
 		assertNull(club.getVillanoEnElLugar());
@@ -39,7 +39,6 @@ class TestClub {
 		Pais pais2 = Mockito.mock(Pais.class);
 		club.setPaisDeOrigen(pais2);
 		assertEquals(pais2,club.getPaisDeOrigen());
-		
 	}
 
 }

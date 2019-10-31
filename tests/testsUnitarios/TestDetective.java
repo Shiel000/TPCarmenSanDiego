@@ -13,8 +13,7 @@ import lugaresDeInteres.LugarDeInteres;
 class TestDetective {
 	
 	@Test
-	
-	public void VillanoYDetectiveEstanEnElMismoLugarDeInteres() {
+	void VillanoYDetectiveEstanEnElMismoLugarDeInteres() {
 		LugarDeInteres lugar = Mockito.mock(LugarDeInteres.class);
 		Caso caso = new Caso();
 		Detective detective = new Detective(caso);
@@ -25,8 +24,7 @@ class TestDetective {
 	}
 	
 	@Test
-	
-	public void VillanoYDetectiveNOEstanEnElMismoLugarDeInteres() {
+	void VillanoYDetectiveNOEstanEnElMismoLugarDeInteres() {
 		LugarDeInteres lugar1 = Mockito.mock(LugarDeInteres.class);
 		LugarDeInteres lugar2 = Mockito.mock(LugarDeInteres.class);
 		Caso caso = new Caso();
@@ -38,8 +36,7 @@ class TestDetective {
 	}
 	
 	@Test
-	
-	public void esDondeEstoyParadoRecibeElLugarCorrecto() {
+	void esDondeEstoyParadoRecibeElLugarCorrecto() {
 		LugarDeInteres lugar = Mockito.mock(LugarDeInteres.class);
 		Caso caso = new Caso();
 		Detective detective = new Detective(caso);
@@ -48,8 +45,7 @@ class TestDetective {
 	}
 	
 	@Test
-	
-	public void esDondeEstoyParadoRecibeUnLugarIncorrecto() {
+	void esDondeEstoyParadoRecibeUnLugarIncorrecto() {
 		LugarDeInteres lugar1 = Mockito.mock(LugarDeInteres.class);
 		LugarDeInteres lugar2 = Mockito.mock(LugarDeInteres.class);
 		Caso caso = new Caso();

@@ -1,8 +1,9 @@
 package lugaresDeInteres;
-import java.util.List;
+
 import modelo.Pista;
 
 public class Embajada extends LugarDeInteres {
+	
 	@Override
 	public Pista darPistas() {
 		Pista pistasADar=new Pista();
@@ -12,7 +13,6 @@ public class Embajada extends LugarDeInteres {
 		}
 		return pistasADar;
 	}
-
-
+	
 }
 
