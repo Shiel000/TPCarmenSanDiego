@@ -30,5 +30,16 @@ class TestClub {
 		club.setVillanoEnElLugar(null);
 		assertNull(club.getVillanoEnElLugar());
 	}
+	
+	@Test
+	void AlCambiarElPaisDeOrigenPorOtroEnBibliotecaObtengoElNuevo() {
+		Club club= new Club();
+		Pais pais = Mockito.mock(Pais.class);
+		club.setPaisDeOrigen(pais);
+		Pais pais2 = Mockito.mock(Pais.class);
+		club.setPaisDeOrigen(pais2);
+		assertEquals(pais2,club.getPaisDeOrigen);
+		
+	}
 
 }
