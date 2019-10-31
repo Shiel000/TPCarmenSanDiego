@@ -6,7 +6,10 @@ public class Juego {
 	private Villano miVillano;
 	
 	public boolean ganeEljuego() {
-		return true;
+		
+		return miDetective.tieneOrdenDeArrestoCorrecta(miVillano)&& miDetective.estoyEnElMismoLugarQueElVillano(miVillano);
 	}
-
+	
 }
+
+

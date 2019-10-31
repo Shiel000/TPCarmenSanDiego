@@ -1,11 +1,16 @@
 package modelo;
 import java.util.*;
 
+import lugaresDeInteres.LugarDeInteres;
+
 public class Villano{
 	private String nombre;
 	private String sexo;
 	private List<String>seniasParticulares;
 	private List<String>hobbies;
+	private Pais paisActual;
+	private LugarDeInteres lugarActualDeInteres;
+	
 	
 	public Villano(String nombreVillano,String sexoVillano) {
 		nombre=nombreVillano;
@@ -35,6 +40,14 @@ public class Villano{
 			caracteristicasDelVillano.add(seniasParticulares.get(i));
 		}
 		return caracteristicasDelVillano;
+	}
+
+	public Pais getPaisActual() {
+		return paisActual;
+	}
+
+	public LugarDeInteres getLugarDeInteresActualVillano() {
+		return lugarActualDeInteres;
 	}
 		
 }

@@ -37,7 +37,13 @@ class TestCaso {
 		assertEquals(caso.getPlanDeEscapeDelSospechoso(), plan);
 	}
 	
-	
+	@Test
+	public void setPaisOrigen() {
+		Caso caso=new Caso();
+		Pais argentinaMock = Mockito.mock(Pais.class);
+		caso.setPaisDondeOcurrioElCrimen(argentinaMock);
+		assertEquals(caso.getPaisDondeOcurrioElCrimen(),argentinaMock);
+	}
 	
 
 }

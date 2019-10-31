@@ -1,8 +1,8 @@
 package modelo;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import excepciones.NoPuedoViajarAEsePaisException;
 import lugaresDeInteres.LugarDeInteres;
 
 public class Detective {
@@ -10,7 +10,7 @@ public class Detective {
 	private Pais paisActual;
 	private Pais paisAnterior;
 	private LugarDeInteres lugarActual;
-	private Villano villanoAArrestar;
+	private Villano villanoArrestar;
 	private boolean tengoOrdenDeArresto;
 	
 	public Detective(Caso casoActual){
@@ -20,19 +20,35 @@ public class Detective {
 		this.tengoOrdenDeArresto=false;
 	}
 	
+	
 	public void pedirOrdenDeArresto(Villano villano) {
 		if(!tengoOrdenDeArresto)
-			this.villanoAArrestar=villano;		
+			this.villanoArrestar=villano;		
 			this.tengoOrdenDeArresto=true;
 	}
 	
-	public void viajarA(Pais paisNuevo) {
-		paisAnterior=paisActual;
-		paisActual=paisNuevo;
+	public void viajarAlSiguientePais(Pais paisNuevo) {
+		if(puedoViajarAlProximoPais(paisNuevo)) {
+			paisAnterior=paisActual;
+			paisActual=paisNuevo;
+		}
+		throw new NoPuedoViajarAEsePaisException();
+
 	}
-	public void viajarA(LugarDeInteres lugar) {
-		lugarActual=lugar;
-		obtenerPistaDelLugar();
+	private boolean puedoViajarAlProximoPais(Pais paisNuevo) {
+		return paisActual.tieneConexionAereaCon(paisNuevo);
+	}
+
+
+	public void viajarAlLugarDeInteres(LugarDeInteres lugar) {
+		if(!esDondeEstoyParado(lugar)) {
+			lugarActual=lugar;
+			obtenerPistaDelLugar();
+		}
+	}
+
+	private boolean esDondeEstoyParado(LugarDeInteres lugar) {
+		return lugar==lugarActual;
 	}
 
 	private List<String> obtenerPistaDelLugar() {
@@ -40,9 +56,14 @@ public class Detective {
 		
 	}
 
-	/*private Boolean esUltimoPaisEnRutaEscape(Pais pais) {
-		Pais ultimo=caso.planDeEscapeDelVillano.get(caso.planDeEscapeDelVillano.size()-1);
-		return pais==ultimo;
-	}*/
+
+	public boolean tieneOrdenDeArrestoCorrecta(Villano villano){
+		return villanoArrestar == villano; 
+	}
 	
+	public boolean estoyEnElMismoLugarQueElVillano(Villano miVillano) {
+		return paisActual== miVillano.getPaisActual() && lugarActual==miVillano.getLugarDeInteresActualVillano();
+	}
+
+
 }
