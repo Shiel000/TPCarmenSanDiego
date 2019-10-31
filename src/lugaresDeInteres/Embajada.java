@@ -12,6 +12,7 @@ public class Embajada extends LugarDeInteres {
 	public Pista darPistas() {
 		Pista pistasADar=new Pista();
 		if(tienePistaDelMalechor()) {
+			
 			pistasADar.agregarPista((getVillanoEnElLugar().darCaracteristicasDelProximoPais()));		
 		}
 		return pistasADar;
