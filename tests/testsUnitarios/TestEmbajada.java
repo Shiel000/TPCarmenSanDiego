@@ -32,5 +32,15 @@ class TestEmbajada {
 		villano.setLugarActualDeInteresDelVillano(embajada);
 		assertNotNull(embajada.darPistas());
 	}
+	
+	@Test
+	void cambiarVillanoPorOtroEnBiblioteca() {
+		Embajada embajada = new Embajada();
+		Villano villano1 = Mockito.mock(Villano.class);
+		embajada.setVillanoEnElLugar(villano1);
+		Villano villano2 = Mockito.mock(Villano.class);
+		embajada.setVillanoEnElLugar(villano2);
+		assertEquals(villano2,embajada.getVillanoEnElLugar);
+	}
 
 }
