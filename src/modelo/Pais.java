@@ -1,34 +1,46 @@
 package modelo;
+import java.util.ArrayList;
+import Lugares.LugarDeInteres;
+import random.numeroRandom;
 
-import java.util.*;
-import lugaresDeInteres.LugarDeInteres;
-
-@SuppressWarnings("unused")
 
 public class Pais {
 	private String nombrePais;
-	private List<String>caracteristicasDelPais;
-	private List<LugarDeInteres>lugaresInteres;
-	private List<Pais>paisesConConexionAerea;
-	
-	public Pais(String nombrePais) {
-		this.nombrePais= nombrePais;
-		this.paisesConConexionAerea=new ArrayList<Pais>();
+	private ArrayList<String>caracteristicasDelPais;
+	private ArrayList<LugarDeInteres>lugaresInteres;
+	private ArrayList<Pais>paisesConConexionAerea;
+
+	public Pais(String nombre) {
+		nombrePais=nombre;
 		this.caracteristicasDelPais=new ArrayList<String>();
-		this.lugaresInteres =new ArrayList<LugarDeInteres>();		
+		this.paisesConConexionAerea=new ArrayList<Pais>();
+		this.lugaresInteres=new ArrayList<LugarDeInteres>();
+	}
+
+	public String obtenerCaracteristicaDelPais() {
+		numeroRandom indice = new numeroRandom();
+		return getCaracteristicaDelPais().get(indice.getRandom(getCaracteristicaDelPais().size()));
+	}
+	private ArrayList<String> getCaracteristicaDelPais() {
+		
+		return caracteristicasDelPais;
+	}
+
+	public boolean tieneConexionAereaCon(Pais pais) {
+		return (this.getPaisesConConexionAerea().contains(pais)&&pais.getPaisesConConexionAerea().contains(this));
 	}
 	
-	public void setConexion(Pais pais) { paisesConConexionAerea.add(pais); }
 	
-	public List<Pais> getConexiones() { return paisesConConexionAerea; }
-	
-	public List<Pais> getPaisesConConexionAerea() { return paisesConConexionAerea; }
-	
-	public void setPaisesConConexionAerea(Pais pais) { this.paisesConConexionAerea.add(pais); }
+	public ArrayList<Pais> getPaisesConConexionAerea() {
+		return paisesConConexionAerea;
+	}
+	public void agregarConexionAerea(Pais pais) {
+		this.paisesConConexionAerea.add(pais);
+		pais.paisesConConexionAerea.add(this);
+	}
 
-	public boolean tieneConexionAereaCon(Pais otroPais) { return this.getConexiones().contains(otroPais)&&otroPais.getConexiones().contains(this); }
-	
-	public void setCaracteristicas(String caracteristica) { caracteristicasDelPais.add(caracteristica); }
+	public void setCaracteristicas(String caracteristica) {
+		caracteristicasDelPais.add(caracteristica);
+	}
 
-	public List<String> getCaracteristicasDelPais() { return caracteristicasDelPais; }
 }

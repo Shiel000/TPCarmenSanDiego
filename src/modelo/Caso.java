@@ -1,30 +1,54 @@
 package modelo;
-import java.util.List;
 
 public class Caso {
-	private Villano sospechoso;
-	public List<Pais>planDeEscapeDelSospechoso;
-	private String reporte;
-	private String objetoRobado;
+	private Villano villanoPosta;
+
+
 	private Pais paisDondeOcurrioElCrimen;
+	private String objetoRobado;
+	private String informe;
+
+	public Caso(Villano villano,Pais pais,String objeto,String informe ){
+		villanoPosta=villano;
+		paisDondeOcurrioElCrimen=pais;
+		objetoRobado=objeto;
+		this.informe=informe;
+		
+	}
+
+	public String getSeniasParticularesDelVillano() {
+		return villanoPosta.obtenerSeniaParticular();
+	}
+
 	
-	public Villano getSospechoso() { return sospechoso; }
+	public String getCaracteristicasDelProximoPaisDelVillano(Pais pais) {
+		return villanoPosta.obtenerCaracteristicaDelProximoPais(pais);
+	}
+
+	public String getHobbiesDelVillano() {
+		return villanoPosta.obtenerHobbies();
+	}
 	
-	public void setSospechoso(Villano sospechoso) { this.sospechoso = sospechoso; }
+	public Villano getVillanoPosta() {
+		return villanoPosta;
+	}
+
+	public Pais getPaisDelRobo() {
 	
-	public List<Pais> getPlanDeEscapeDelSospechoso() { return planDeEscapeDelSospechoso; }
-	
-	public void setPlanDeEscapeDelSospechoso(List<Pais> planDeEscapeDelSospechoso) { this.planDeEscapeDelSospechoso = planDeEscapeDelSospechoso; }
-	
-	public String getReporte() { return reporte; }
-	
-	public void setReporte(String reporte) { this.reporte = reporte; }
-	
-	public String getObjetoRobado() { return objetoRobado; }
-	
-	public void setObjetoRobado(String objetoRobado) { this.objetoRobado = objetoRobado; }
-	
-	public Pais getPaisDondeOcurrioElCrimen() { return paisDondeOcurrioElCrimen; }
-	
-	public void setPaisDondeOcurrioElCrimen(Pais paisDondeOcurrioElCrimen) { this.paisDondeOcurrioElCrimen = paisDondeOcurrioElCrimen; }
+		return paisDondeOcurrioElCrimen;
+	}
+
+	public void setVillano(Villano villano) {
+		this.villanoPosta=villano;
+		
+	}
+
+	public Pais getPaisDondeOcurrioElCrimen() {
+		return paisDondeOcurrioElCrimen;
+	}
+
+	public void setPaisDondeOcurrioElCrimen(Pais paisDondeOcurrioElCrimen) {
+		this.paisDondeOcurrioElCrimen = paisDondeOcurrioElCrimen;
+	}
+
 }

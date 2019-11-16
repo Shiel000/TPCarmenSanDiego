@@ -1,66 +1,106 @@
 package modelo;
 
-import excepciones.YaSeEncuentraEnElLugarException;
-import excepciones.NoPuedoViajarAEsePaisException;
-import excepciones.PerdioElJuegoException;
-import lugaresDeInteres.LugarDeInteres;
+import org.junit.rules.ExpectedException;
 
-@SuppressWarnings("unused")
+import Lugares.LugarDeInteres;
+import excepciones.NoPuedoViajarAEsePaisException;
+import excepciones.YaSeEncuentraEnElLugarException;
 
 public class Detective {
 	private Caso caso;
+	protected Villano posibleSospechoso;
 	private Pais paisActual;
 	private Pais paisAnterior;
 	private LugarDeInteres lugarActual;
-	private Villano villanoArrestar;
 	private boolean tengoOrdenDeArresto;
 
-	public Detective(Caso casoActual){
-		this.caso = casoActual;
-		this.paisActual=caso.getPaisDondeOcurrioElCrimen();
+	public Detective(Caso caso) {
+		this.caso=caso;
+		this.paisActual=caso.getPaisDelRobo();
 		this.paisAnterior=null;
 		this.tengoOrdenDeArresto=false;
 	}
 	
-	public void pedirOrdenDeArresto(Villano villano) {
-		if(!tengoOrdenDeArresto) {
-			this.villanoArrestar=villano;		
-			this.tengoOrdenDeArresto=true;
+	public void viajarAlProximoDestino(Pais pais) {
+		try {
+			if(!estoyEnEsePais(pais)&& puedeViajarAlProximoPais(pais)) {
+				setPaisAnterior(paisActual);
+				setPaisActual(pais);
+			}	
 		}
-	}
-	
-	public void atraparVillano() {
-		if(estoyEnElMismoLugarQueElVillano(villanoArrestar)&&tieneOrdenDeArrestoCorrecta(villanoArrestar)) {
-			villanoArrestar.setEstaCapturado(true);
-		}
-		throw new PerdioElJuegoException();
+		catch(Exception NoPuedoViajarAEsePaisExceptiono) {}
 	}
 
-	public void viajarAlSiguientePais(Pais paisNuevo) {
-		if(puedoViajarAlProximoPais(paisNuevo)) {
-			paisAnterior=paisActual;
-			paisActual=paisNuevo;
-		}
-		throw new NoPuedoViajarAEsePaisException();
+	private void setPaisAnterior(Pais pais) {
+		this.paisAnterior=pais;
+		
 	}
 
-	public void viajarAlLugarDeInteres(LugarDeInteres lugar) {
-		if(!esDondeEstoyParado(lugar)) {
-			lugarActual=lugar;
-			lugarActual.darPistas();
-		}
-		throw new YaSeEncuentraEnElLugarException();
+	private boolean puedeViajarAlProximoPais(Pais pais) {
+		return paisActual.tieneConexionAereaCon(pais) && pais.tieneConexionAereaCon(paisActual) ;
 	}
-	public boolean esDondeEstoyParado(LugarDeInteres lugar) {
+
+	private boolean estoyEnEsePais(Pais pais) {
+		return pais.equals(paisActual);
+	}
+	public void viajarAlProximoLugarDeInteres(LugarDeInteres lugar) {
+		try {
+			if(!esDondeEstoyParado(lugar)) {
+				lugarActual=lugar;
+				pedirPista(lugar);
+			}
+		}
+		catch (Exception e) {
+			throw new YaSeEncuentraEnElLugarException();
+		}
+		
+	}
+
+	private void pedirPista(LugarDeInteres lugar) {
+		lugar.darPista(caso);
+	}
+
+	private boolean esDondeEstoyParado(LugarDeInteres lugar) {
 		return lugar.equals(lugar);
 	}
-
-	public boolean estoyEnElMismoLugarQueElVillano(Villano miVillano) {
-		return paisActual.equals(miVillano.getPaisActual() )&& lugarActual.equals(miVillano.getLugarDeInteresActualVillano());
+	public void pedirOrdenDeArresto(Villano villano) {
+		if(!tengoOrdenDeArresto) {
+			this.posibleSospechoso=villano;		
+			this.tengoOrdenDeArresto=true;
+		}
+		
 	}
-	
-	public boolean tieneOrdenDeArrestoCorrecta(Villano villano){ return villanoArrestar.equals(villano); }
 
-	private boolean puedoViajarAlProximoPais(Pais paisNuevo) { return paisActual.tieneConexionAereaCon(paisNuevo); }
+	public boolean tieneLaOrdenDeArrestoCorrecta() {
+		return posibleSospechoso.equals(caso.getVillanoPosta());
+	}
+
+	public boolean estaEnElMismoLugarQueElSospechoso() {
+		return lugarActual.equals(ultimoLugarDeInteresDondeEstaElVillano()) && paisActual.equals(ultimoPaisDondeEsaElVillano());
+	}
+
+	public LugarDeInteres ultimoLugarDeInteresDondeEstaElVillano() {
+		return caso.getVillanoPosta().getUltimoLugarDEInteres();
+	}
+/*
+ * /// estaba en private pero se cambio a publico para testear
+ * el funcionamiento del mismo
+ */
+	public Pais ultimoPaisDondeEsaElVillano() {
+		return ultimoLugarDeInteresDondeEstaElVillano().getPaisDeOrigenDelLugar();
+	}
+	public void setPaisActual(Pais paisActual) {
+		this.paisActual = paisActual;
+	}
+
+	public Pais getPaisActual() {
+		return paisActual;
+	}
+
+	public void setLugarDeInteresActual(LugarDeInteres lugar) {
+		this.lugarActual=lugar;
+		
+	}
 }
 
+ 
