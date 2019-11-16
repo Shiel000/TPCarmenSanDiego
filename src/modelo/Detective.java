@@ -46,7 +46,7 @@ public class Detective {
 	public void viajarAlProximoLugarDeInteres(LugarDeInteres lugar) {
 		try {
 			if(!esDondeEstoyParado(lugar)) {
-				lugarActual=lugar;
+				this.setLugarDeInteresActual(lugar);
 				pedirPista(lugar);
 			}
 		}
@@ -75,13 +75,14 @@ public class Detective {
 		return posibleSospechoso.equals(caso.getVillanoPosta());
 	}
 
+	public LugarDeInteres ultimoLugarDeInteresDondeEstaElVillano() {
+		Villano villano=caso.getVillanoPosta();
+		return villano.getUltimoLugarDEInteres();
+	}
 	public boolean estaEnElMismoLugarQueElSospechoso() {
-		return lugarActual.equals(ultimoLugarDeInteresDondeEstaElVillano()) && paisActual.equals(ultimoPaisDondeEsaElVillano());
+		return lugarActual.equals(ultimoLugarDeInteresDondeEstaElVillano());
 	}
 
-	public LugarDeInteres ultimoLugarDeInteresDondeEstaElVillano() {
-		return caso.getVillanoPosta().getUltimoLugarDEInteres();
-	}
 /*
  * /// estaba en private pero se cambio a publico para testear
  * el funcionamiento del mismo

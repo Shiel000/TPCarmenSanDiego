@@ -11,7 +11,6 @@ public class Villano{
 	ArrayList<String>seniasParticulares;
 	ArrayList<String>hobbies;
 	ArrayList<Pais>rutaDeEscape;
-
 	Pais ultimoPaisDondeEsta;
 	LugarDeInteres ultimoLugarDEInteres;
 	

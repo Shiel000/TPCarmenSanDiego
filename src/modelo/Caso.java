@@ -2,8 +2,6 @@ package modelo;
 
 public class Caso {
 	private Villano villanoPosta;
-
-
 	private Pais paisDondeOcurrioElCrimen;
 	private String objetoRobado;
 	private String informe;
