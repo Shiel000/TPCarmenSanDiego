@@ -24,8 +24,6 @@ public class Villano{
 		ultimoPaisDondeEsta= ultimoLugarDEInteres.getPaisDeOrigenDelLugar();	
 	}
 	
-
-	
 	public String obtenerSeniaParticular() {
 		numeroRandom indice = new numeroRandom();
 		return seniasParticulares.get(indice.getRandom(seniasParticulares.size()));
