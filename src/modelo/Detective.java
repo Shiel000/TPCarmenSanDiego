@@ -23,13 +23,13 @@ public class Detective {
 	}
 	
 	public void viajarAlProximoDestino(Pais pais) {
-		try {
-			if(!estoyEnEsePais(pais)&& puedeViajarAlProximoPais(pais)) {
-				setPaisAnterior(paisActual);
-				setPaisActual(pais);
-			}	
+		if(!estoyEnEsePais(pais)&& puedeViajarAlProximoPais(pais)) {
+			setPaisAnterior(paisActual);
+			setPaisActual(pais);
 		}
-		catch(Exception NoPuedoViajarAEsePaisExceptiono) {}
+		else {
+			throw new NoPuedoViajarAEsePaisException();
+		}
 	}
 
 	private void setPaisAnterior(Pais pais) {
@@ -45,15 +45,14 @@ public class Detective {
 		return pais.equals(paisActual);
 	}
 	public void viajarAlProximoLugarDeInteres(LugarDeInteres lugar) {
-		try {
-			//if(!esDondeEstoyParado(lugar)) {
-				setLugarDeInteresActual(lugar);
-			//}
+		if(!esDondeEstoyParado(lugar)) {
+			setLugarDeInteresActual(lugar);
+			//pedirPista(lugar);
 		}
-		catch (Exception e) {
+		else {
 			throw new YaSeEncuentraEnElLugarException();
 		}
-		
+
 	}
 	
 	public void pedirPista(LugarDeInteres lugar) {
@@ -61,7 +60,7 @@ public class Detective {
 	}
 
 	private boolean esDondeEstoyParado(LugarDeInteres lugar) {
-		return lugar.equals(lugar);
+		return lugar.equals(lugarActual);
 	}
 	public void pedirOrdenDeArresto(Villano villano) {
 		if(!tengoOrdenDeArresto) {
@@ -109,7 +108,6 @@ public class Detective {
 			if(estaEnElMismoLugarQueElSospechoso()) {
 				caso.getVillanoPosta().setEstaArrestado(true);
 				caso.setEstaCerrado(true);
-				//throw new GanoElJuego();
 			}
 			else {
 				throw new NoSeEncuentraEnEseLugarElVillano();
@@ -117,7 +115,6 @@ public class Detective {
 		}
 		else {
 			throw new NoTieneLaOrdenDeArrestoCorrecta();
-			//throw new PerdioElJuego();
 		}
 	}
 	

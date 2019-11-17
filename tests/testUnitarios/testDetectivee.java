@@ -11,6 +11,8 @@ import Lugares.Biblioteca;
 import Lugares.Club;
 import Lugares.Embajada;
 import Lugares.LugarDeInteres;
+import excepciones.NoPuedoViajarAEsePaisException;
+import excepciones.YaSeEncuentraEnElLugarException;
 import modelo.Caso;
 import modelo.Detective;
 import modelo.Pais;
@@ -125,18 +127,8 @@ public class testDetectivee {
 		detective.estaEnElMismoLugarQueElSospechoso();
 	}
 	
- 
-	/*
-	 * PREGUNTAR POR EL TEMA DEL TESTEO DE LAS EXCEPCIONES
-	 * PORQUE ME TIRAN MAL 
-	 * LAS TUVE QUE ACOMODAR CON TRY AND CATCH
-	 * PERO PREGUNTAR 
-	 * //(expected = YaSeEncuentraEnElLugarException.class)
-	 * //(expected = NoPuedoViajarAEsePaisException.class)
-	 * */
-	
-	
-	@Test
+
+	@Test(expected = YaSeEncuentraEnElLugarException.class)
 	public void viajarAlProximoLugarDeInteres_CuandonNOPuedoYEstoyEnEseLugar(){
 		Biblioteca bibliotecaArgentina=new Biblioteca();
 		Club clubSacachispa=new Club();
@@ -148,7 +140,7 @@ public class testDetectivee {
 		detectivin.viajarAlProximoLugarDeInteres(bibliotecaArgentina);		
 	}
 
-	@Test
+	@Test(expected = NoPuedoViajarAEsePaisException.class)
 	public void viajarAlProximoDestino_CuandoEstoyEnEsePaisYPuedoViajar() {
 		LugarDeInteres lugar = Mockito.mock(LugarDeInteres.class);
 		Villano villanina = new Villano("villanina", "femenino", lugar);
