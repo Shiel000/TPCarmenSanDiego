@@ -1,9 +1,10 @@
 package modelo;
 
-import org.junit.rules.ExpectedException;
 
 import Lugares.LugarDeInteres;
 import excepciones.NoPuedoViajarAEsePaisException;
+import excepciones.NoSeEncuentraEnEseLugarElVillano;
+import excepciones.NoTieneLaOrdenDeArrestoCorrecta;
 import excepciones.YaSeEncuentraEnElLugarException;
 
 public class Detective {
@@ -45,18 +46,17 @@ public class Detective {
 	}
 	public void viajarAlProximoLugarDeInteres(LugarDeInteres lugar) {
 		try {
-			if(!esDondeEstoyParado(lugar)) {
-				this.setLugarDeInteresActual(lugar);
-				pedirPista(lugar);
-			}
+			//if(!esDondeEstoyParado(lugar)) {
+				setLugarDeInteresActual(lugar);
+			//}
 		}
 		catch (Exception e) {
 			throw new YaSeEncuentraEnElLugarException();
 		}
 		
 	}
-
-	private void pedirPista(LugarDeInteres lugar) {
+	
+	public void pedirPista(LugarDeInteres lugar) {
 		lugar.darPista(caso);
 	}
 
@@ -68,7 +68,7 @@ public class Detective {
 			this.posibleSospechoso=villano;		
 			this.tengoOrdenDeArresto=true;
 		}
-		
+		/// agregar una excepcion si ya pidio la orden
 	}
 
 	public boolean tieneLaOrdenDeArrestoCorrecta() {
@@ -80,7 +80,8 @@ public class Detective {
 		return villano.getUltimoLugarDEInteres();
 	}
 	public boolean estaEnElMismoLugarQueElSospechoso() {
-		return lugarActual.equals(ultimoLugarDeInteresDondeEstaElVillano());
+		LugarDeInteres lugar=ultimoLugarDeInteresDondeEstaElVillano();
+		return lugarActual.equals(lugar);
 	}
 
 /*
@@ -102,6 +103,26 @@ public class Detective {
 		this.lugarActual=lugar;
 		
 	}
+	
+	public void resolverCaso() {
+		if(tieneLaOrdenDeArrestoCorrecta()){
+			if(estaEnElMismoLugarQueElSospechoso()) {
+				caso.getVillanoPosta().setEstaArrestado(true);
+				caso.setEstaCerrado(true);
+				//throw new GanoElJuego();
+			}
+			else {
+				throw new NoSeEncuentraEnEseLugarElVillano();
+			}
+		}
+		else {
+			throw new NoTieneLaOrdenDeArrestoCorrecta();
+			//throw new PerdioElJuego();
+		}
+	}
+	
+	
+	
 }
 
  

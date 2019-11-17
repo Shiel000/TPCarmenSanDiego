@@ -19,7 +19,9 @@ public abstract class LugarDeInteres {
 		if(estuvoElVillanoAqui()) {
 			return getPistas(caso,pista,paisDeOrigenDelLugar);
 		}
-		throw new NoHayPistasException();
+		else{
+			throw new NoHayPistasException();
+		}
 	}
 	
 	public boolean estuvoElVillanoAqui() {

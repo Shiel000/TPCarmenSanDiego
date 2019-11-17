@@ -7,7 +7,6 @@ import Lugares.Biblioteca;
 import Lugares.Embajada;
 import modelo.Caso;
 import modelo.Detective;
-import modelo.Juego;
 import modelo.Pais;
 import modelo.Villano;
 
@@ -45,14 +44,15 @@ public class testIntegradorGanoElJuejo {
 		japon.setCaracteristicas("el pais del sol naciente");
 		Caso caso= new Caso(carmen, canada, "Anillo antiguo", "tesoro nacional de canada");
 		Detective miDetective =new Detective(caso);
-		Juego juego=new Juego(caso,miDetective);
 		miDetective.viajarAlProximoLugarDeInteres(bibliotecaHojitaRoja);
+		miDetective.pedirPista(bibliotecaHojitaRoja);
 		miDetective.viajarAlProximoDestino(alemania);
 		miDetective.viajarAlProximoLugarDeInteres(bancoAleman);
+		miDetective.pedirPista(bancoAleman);
 		miDetective.pedirOrdenDeArresto(carmen);
 		miDetective.viajarAlProximoDestino(japon);
 		miDetective.viajarAlProximoLugarDeInteres(embajadaDeJapon);
-		juego.resolvioElCaso();
+		miDetective.resolverCaso();
 	}
 
 }

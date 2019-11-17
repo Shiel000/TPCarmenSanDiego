@@ -6,13 +6,14 @@ import excepciones.NoHaySiguientePaisException;
 import random.numeroRandom;
 
 public class Villano{
-	String nombre;
-	String sexo;
-	ArrayList<String>seniasParticulares;
-	ArrayList<String>hobbies;
-	ArrayList<Pais>rutaDeEscape;
-	Pais ultimoPaisDondeEsta;
-	LugarDeInteres ultimoLugarDEInteres;
+	protected String nombre;
+	protected  String sexo;
+	protected  ArrayList<String>seniasParticulares;
+	protected  ArrayList<String>hobbies;
+	protected  ArrayList<Pais>rutaDeEscape;
+	protected  Pais ultimoPaisDondeEsta;
+	protected  LugarDeInteres ultimoLugarDEInteres;
+	protected  boolean estaArrestado;
 	
 	public Villano(String nombre,String sexo,LugarDeInteres ultmimo){
 		this.nombre=nombre;
@@ -21,7 +22,9 @@ public class Villano{
 		this.hobbies=new ArrayList<String>();
 		rutaDeEscape=new ArrayList<Pais>();
 		ultimoLugarDEInteres= ultmimo;
-		ultimoPaisDondeEsta= ultimoLugarDEInteres.getPaisDeOrigenDelLugar();	
+		ultimoPaisDondeEsta= ultimoLugarDEInteres.getPaisDeOrigenDelLugar();
+		estaArrestado=false;
+	
 	}
 	
 	public String obtenerSeniaParticular() {
@@ -87,6 +90,11 @@ public class Villano{
 	}
 	public void agregarHobbies(String hobbie) {
 		hobbies.add(hobbie);
+		
+	}
+
+	public void setEstaArrestado(boolean condicion) {
+		estaArrestado = condicion;
 		
 	}
 	
