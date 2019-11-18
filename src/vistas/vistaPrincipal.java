@@ -31,9 +31,7 @@ public class vistaPrincipal extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+
 	public vistaPrincipal() {
 		setTitle("carmenSandiego");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,7 +41,7 @@ public class vistaPrincipal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblBienvenidosAlJuego = new JLabel("BIENVENIDOS AL JUEGO DE DONDE ESTA CANMEN SANDIEGO");
+		JLabel lblBienvenidosAlJuego = new JLabel("BIENVENIDOS AL JUEGO: ¿DONDE ESTA CANMEN SANDIEGO?");
 		lblBienvenidosAlJuego.setBounds(47, 0, 408, 52);
 		contentPane.add(lblBienvenidosAlJuego);
 		
