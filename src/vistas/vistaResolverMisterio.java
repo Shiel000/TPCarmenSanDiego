@@ -46,13 +46,7 @@ public class vistaResolverMisterio extends JFrame {
 		casoDummy=new CasoDummy();
 		String nombre = casoDummy.getObjetoRobado();
 		
-		
-		
-		//String nombre= caso.getObjetoRobado(caso);
-		
-		
-		
-		
+
 		setTitle(nombre);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
