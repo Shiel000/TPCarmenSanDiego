@@ -4,9 +4,8 @@ import Lugares.*;
 public class CasoDummy {
 	
 	private Caso caso;
-	
 
-	public Caso crearCasoDuumy() { 
+	public CasoDummy() { 
 		Banco bancoNacionalDeViena =new Banco();
 		Pais austria = new Pais("Austria");
 		Pais australia = new Pais("Australia");
@@ -20,7 +19,7 @@ public class CasoDummy {
 		String objeto ="aca va el objeto";
 		Villano villano= new Villano("Carmen San Diego", "mujer", bancoNacionalDeViena);
 		Caso nuevoCaso = new Caso(villano, australia, objeto, informe);
-		return nuevoCaso;
+
 	}
 	
 	public String getObjetoRobado() {

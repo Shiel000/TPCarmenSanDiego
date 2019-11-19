@@ -13,12 +13,17 @@ import modelo.Caso;
 import javax.swing.JButton;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class vistaResolverMisterio extends JFrame {
 
 	private JPanel contentPane;
+	
 
 	private CasoDummy casoDummy;
+	
+	private vistaJuego siguienteVista= vistaJuego.getVistaJuegoInterfaz();
 
 	private static vistaResolverMisterio interfaz =new vistaResolverMisterio();
 
@@ -43,11 +48,11 @@ public class vistaResolverMisterio extends JFrame {
 
 
 	public vistaResolverMisterio() {
-		casoDummy=new CasoDummy();
-		String nombre = casoDummy.getObjetoRobado();
+		//casoDummy=new CasoDummy();
+		//String nombre = casoDummy.getObjetoRobado();
 		
 
-		setTitle(nombre);
+		setTitle("aca tiene que ir el nombre del caso u objeto robado");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -61,6 +66,14 @@ public class vistaResolverMisterio extends JFrame {
 		
 		
 		JButton btnIrAInvestigar = new JButton("Ir a investigar");
+		btnIrAInvestigar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				mostrarVentanaDeJuego();
+				liberarRecurso();
+				setVisible(false);
+				
+			}
+		});
 		btnIrAInvestigar.setBounds(38, 190, 125, 48);
 		contentPane.add(btnIrAInvestigar);
 		
@@ -70,8 +83,15 @@ public class vistaResolverMisterio extends JFrame {
 		
 		JLabel lblAcaVaTexto = new JLabel("aca va texto del caso");
 		lblAcaVaTexto.setBounds(0, 0, 432, 177);
-		contentPane.add(lblAcaVaTexto);
+		contentPane.add(lblAcaVaTexto);		
 	}
+	private synchronized void liberarRecurso() {
+		this.notifyAll();
+	}
+	public void mostrarVentanaDeJuego() {
+		siguienteVista.lanzar();
+	}
+	
 	public void lanzar() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -83,4 +103,5 @@ public class vistaResolverMisterio extends JFrame {
 			}
 		});
 	}
+
 }

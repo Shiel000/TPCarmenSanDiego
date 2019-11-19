@@ -60,6 +60,10 @@ public class vistaPrincipal extends JFrame {
 		JButton btnExpedientes = new JButton("Expedientes");
 		btnExpedientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				//mostrarExpedientes();
+				liberarRecurso();
+				setVisible(false);
+				
 			}
 		});
 		btnExpedientes.setBounds(256, 121, 136, 25);
