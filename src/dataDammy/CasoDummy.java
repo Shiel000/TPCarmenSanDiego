@@ -1,10 +1,11 @@
 package dataDammy;
-import Lugares.Banco;
 import modelo.*;
-
-
-public class caSoDummy {
+import Lugares.*;
+public class CasoDummy {
 	
+	private Caso caso;
+	
+
 	public Caso crearCasoDuumy() { 
 		Banco bancoNacionalDeViena =new Banco();
 		Pais austria = new Pais("Austria");
@@ -20,6 +21,10 @@ public class caSoDummy {
 		Villano villano= new Villano("Carmen San Diego", "mujer", bancoNacionalDeViena);
 		Caso nuevoCaso = new Caso(villano, australia, objeto, informe);
 		return nuevoCaso;
+	}
+	
+	public String getObjetoRobado() {
+		return caso.getObjetoRobado();		
 	}
 
 }

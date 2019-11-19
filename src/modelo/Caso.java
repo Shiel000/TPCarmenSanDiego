@@ -56,4 +56,8 @@ public class Caso {
 		
 	}
 
+	public String getObjetoRobado() {
+		return objetoRobado;
+	}
+
 }
